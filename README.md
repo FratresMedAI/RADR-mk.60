@@ -1,38 +1,39 @@
 # TKI-30-66 ("Splash")
 
-**Terminal Kinetic Interceptor — 30–66 mm Class**
+**Terminal Counter-UAS — 30–66 mm Class**
 
-A conceptual shoulder-fired, reusable recoilless-style launcher with integrated IR tracking, firing compact IR-guided kinetic rounds optimized for close-in defeat of small-to-medium unmanned aircraft systems (UAS) at the squad and SOF echelon.
+A conceptual shoulder-fired, reusable recoilless-style launcher firing lightweight guided rockets with **titanium BB flak** warheads and **onboard fire-and-forget IR** guidance, optimized for close-in defeat of small-to-medium unmanned aircraft systems (UAS) at the squad and SOF echelon.
 
 **Status:** Phase 0 — Conceptual documentation baseline  
-**Version:** 0.3.0  
+**Version:** 0.4.0  
 **Internal codename:** Splash
 
 ---
 
 ## Description
 
-TKI-30-66 is a man-portable, terminal-layer counter-UAS concept built around a Gustav-like flip-breech launcher in the 50 mm caliber class. The launcher carries a reusable IR tracking sight (Javelin CLU analogue); each ~305 mm (12 in) round carries a mini IR seeker and high-velocity kinetic rod payload, stabilized by rifling and spring-loaded deployable fins. A two-man team — gunner and ammo bearer — provides organic drone defeat when higher-echelon systems are saturated, unavailable, or overkill.
+TKI-30-66 is a man-portable, terminal-layer counter-UAS concept built around a Gustav-like flip-breech launcher in the 50 mm caliber class. Each lightweight rocket (up to ~457 mm / 18 in) carries an onboard IR seeker (baby Stinger / Igla class, drone-optimized) and a **Ti BB flak** warhead that disperses a cloud of titanium ball bearings near the target — rocket-delivered flak, not a kinetic rod or penetrator. A two-man team — gunner and ammo bearer — provides organic drone defeat when higher-echelon systems are saturated, unavailable, or overkill.
 
-Design philosophy: **Reliability first, KISS, low backblast, low logistics, honest capability ceiling.** Cost and peak performance are traded away when they conflict with working every time.
+Design philosophy: **KISS, lightweight, man-portable, relatively cheap per shot, low backblast, honest capability ceiling.**
 
 ---
 
 ## Quick Spec Card
 
-| Parameter | TKI-30-66 (Splash) | M72 LAW | Carl Gustaf M4 | FGM-148 Javelin |
-|-----------|-------------------|---------|----------------|-----------------|
+| Parameter | TKI-30-66 (Splash) | M72 LAW | Carl Gustaf M4 | FIM-92 Stinger |
+|-----------|-------------------|---------|----------------|----------------|
 | **Status** | Conceptual | Fielded | Fielded | Fielded |
-| **Caliber** | 50 mm (40–66 mm envelope) | 66 mm | 84 mm | 127 mm |
-| **Launcher mass** | ~8.0 kg (with tracker) | ~3.2 kg (disposable) | ~6.6 kg (empty) | ~6.4 kg (CLU) |
-| **Round mass** | ~2.5 kg | ~3.2 kg | ~3.2 kg | ~11.8 kg |
-| **Round length** | ~305 mm (12 in) | ~890 mm | ~460 mm | ~1100 mm |
-| **Reusable** | Yes | No | Yes | Yes |
-| **Guidance** | Launcher IR track + round IR seeker (LOBL) | Unguided | Unguided | IR imaging LOBL |
-| **Primary role** | Terminal C-UAS (kinetic) | Anti-armor | Multi-role | Anti-armor |
-| **Effective range** | 150–600 m (800 m aspirational) | 50–350 m | 100–1000 m | 500–4750 m |
-| **Backblast** | Low–moderate (~30 m goal) | Moderate (~40 m) | Significant (~60 m) | Moderate (~25 m) |
-| Cost per shot | ~$300–500 (goal) | ~$500 | ~$3,000 | ~$80,000 |
+| **Caliber** | 50 mm (40–66 mm envelope) | 66 mm | 84 mm | 70 mm |
+| **Launcher mass** | ~7.0 kg (empty) | ~3.2 kg (disposable) | ~6.6 kg (empty) | ~15.2 kg (system) |
+| **Rocket mass** | ~2.3 kg (goal) | ~3.2 kg | ~3.2 kg | ~10.1 kg |
+| **Rocket length** | ≤ 457 mm (18 in max) | ~890 mm | ~460 mm | ~1520 mm |
+| **Reusable** | Yes | No | Yes | No (tube) |
+| **Guidance** | Onboard IR, fire-and-forget | Unguided | Unguided | IR homing |
+| **Warhead** | Ti BB flak dispersal | HEAT | Multi-role | Blast-frag |
+| **Primary role** | Terminal C-UAS (flak) | Anti-armor | Multi-role | MANPADS |
+| **Effective range** | 150–600 m (800 m aspirational) | 50–350 m | 100–1000 m | 500–4800 m |
+| **Backblast** | Low–moderate (~30 m goal) | Moderate (~40 m) | Significant (~60 m) | Moderate (~15 m) |
+| **Cost per shot** | ~$200–400 (goal) | ~$500 | ~$3,000 | ~$120,000 |
 | **Team size** | 2 (gunner + ammo bearer) | 1 | 1–2 | 1–2 |
 
 Structured comparison data: [`data/baseline_systems.json`](data/baseline_systems.json)
@@ -50,7 +51,7 @@ Structured comparison data: [`data/baseline_systems.json`](data/baseline_systems
 | 03 | [Design Constraints](docs/03-design-constraints.md) | Physical, safety, cost, and logistics limits |
 | 04 | [CONOPS / Use Cases](docs/04-conops-use-cases.md) | Six squad/SOF employment scenarios |
 | 05 | [Key Design Trades](docs/05-key-design-trades.md) | Engineering trade analysis and baselines |
-| 06 | [System Description](docs/06-system-description.md) | Launcher, round, stabilization, employment |
+| 06 | [System Description](docs/06-system-description.md) | Launcher, rocket, warhead, employment |
 | 07 | [Limitations and Risks](docs/07-limitations-and-risks.md) | Honest capability ceiling and risk register |
 | 08 | [Layered Defense Integration](docs/08-layered-defense-integration.md) | C-UAS architecture placement |
 
@@ -61,7 +62,7 @@ Structured comparison data: [`data/baseline_systems.json`](data/baseline_systems
 | A | [Baseline Comparison](annexes/A-baseline-comparison.md) | Comparison to fielded and commercial systems |
 | B | [KPP Targets](annexes/B-kpp-targets.md) | Full KPP/KSA/MOE tables with verification plan |
 | C | [Trades Matrix](annexes/C-trades-matrix.md) | Design trade options and recommendations |
-| D | [Projectile Stabilization](annexes/D-projectile-stabilization.md) | Rifling + deployable fin engineering detail |
+| D | [Projectile Stabilization](annexes/D-projectile-stabilization.md) | Rocket fin stabilization and flight |
 | E | [References / Bibliography](annexes/E-references-bibliography.md) | Curated source references |
 
 ### Data
@@ -76,43 +77,41 @@ Structured comparison data: [`data/baseline_systems.json`](data/baseline_systems
 
 | Decision | Selection | Rationale |
 |----------|-----------|-----------|
-| **Design priority** | **Reliability over cost / peak performance** | Squad weapon must work when called; duds unacceptable |
-| Launcher architecture | Reusable flip-breech + integrated IR tracker + pre-fire BIT | Smart electronics reusable, testable before every shot |
-| Baseline caliber | 50 mm (40–66 mm envelope) | Balance of KE, mass, and backblast |
-| Guidance (Phase 1) | Launcher IR tracker + rugged quad-cell IR on round (LOBL) | Simplest viable seeker; no imaging FPA or radar on baseline |
-| Round electronics | Minimal — seeker + autopilot only; factory sealed | Fewer failure modes; no field repair |
-| Pre-fire check | Mandatory breech-contact BIT; no-fire if seeker fail | Prevents expending duds |
-| Guidance (Phase 2 option) | Mini FMCW radar round | **Deprioritized** — adds failure modes and RF complexity |
-| Beam-riding / laser | **Rejected** | User requirement |
-| Payload | Unitary kinetic rod | Best single-target Pk; lowest collateral |
-| Stabilization | Rifled barrel + deployable locking fins (dual springs) | Mechanical redundancy on critical deployment |
-| Warhead type | Kinetic (non-explosive) | ROE flexibility; reduced logistics burden |
-| Propulsion | Moderate velocity (~650 m/s class) | Lower launch shock → higher seeker/fin reliability |
-| Backblast priority | Low–moderate (≤ 30 m goal) | Safer squad employment vs. Gustaf class |
-| Team organization | 2-man (gunner + ammo bearer) | No separate designator required |
-| Flechette variant | Deferred | Additional SKU complexity hurts reliability/logistics |
+| Launcher architecture | Reusable flip-breech recoilless tube | Gustav-familiar; no integrated tracker |
+| Baseline caliber | 50 mm (40–66 mm envelope) | Smaller/lighter than 84 mm Gustaf |
+| Rocket size | ≤ 457 mm (18 in) OAL; minimum mass | User requirement; pack-compatible upper bound |
+| Guidance | **Onboard IR, fire-and-forget** | Baby Stinger/Igla class; drone-optimized; no laser |
+| Warhead | **Ti BB flak dispersal** | Rocket-delivered flak cloud; not rod/penetrator |
+| Beam-riding / laser | **Rejected** | Not in concept |
+| Launcher-tracked LOBL / BIT | **Removed** | Superseded by onboard F&F seeker |
+| Kinetic rod / flechette | **Rejected** | Superseded by Ti BB flak |
+| Stabilization | Fin-stabilized rocket (smoothbore baseline) | Conventional rocket architecture |
+| Backblast priority | Low–moderate (≤ 30 m goal) | Squad-safe employment |
+| Team organization | 2-man (gunner + ammo bearer) | SOF/squad doctrine |
+| Philosophy | KISS, lightweight, cheap per shot | Terminal close-in UAS |
 
 ---
 
-## Reliability Targets (Notional)
+## Effectiveness Notes (Notional)
 
-| Metric | Threshold | Objective |
-|--------|-----------|-----------|
-| Round guidance function at launch | ≥ 98% | ≥ 99.5% |
-| Fin deployment success | ≥ 99% | ≥ 99.5% |
-| Launcher MRBF (critical failure) | ≥ 300 rounds | ≥ 500 rounds |
-| Pre-fire BIT blocks failed rounds | 100% | 100% |
-| Mission-capable rate (field) | ≥ 93% | ≥ 97% |
+| Topic | Expectation |
+|-------|-------------|
+| Kill mechanism | BB cloud damages rotors/structure — proximity defeat, not single-point penetrator |
+| Pk vs. hover target | Moderate; depends on cloud coverage and fuze timing |
+| Pk vs. crossing target | Lower than hover |
+| Collateral | Ti BB hazard footprint — ROE-sensitive in urban use |
 
-Full table: [Annex B — KPP Targets](annexes/B-kpp-targets.md)
+Full KPP tables: [Annex B — KPP Targets](annexes/B-kpp-targets.md)
+
+---
 
 ## Open Questions
 
-- **Backblast architecture:** Countermass vs. soft-launch hybrid ratio — pending Phase 1 ballistic test
-- **Seeker tier:** Quad-cell IR locked as baseline; micro-bolometer rejected for reliability
-- **Radar variant:** Deprioritized unless obscuration MOE overrides reliability priority
-- **Pk validation:** No test data; all effectiveness figures are analytic placeholders
-- **Export control:** ITAR/legal review required before any hardware development
+- **Dispersal fuze:** Proximity IR vs. timed vs. seeker-gated — not selected in baseline
+- **BB count / cloud diameter:** Analytic placeholder only
+- **Seeker tier:** Simplified imaging IR vs. rosette — cost/Pk trade TBD
+- **Smoothbore vs. rifled launch tube:** Engineering TBD (Annex D)
+- **Pk validation:** No test data; all figures notional
 
 ---
 
@@ -120,14 +119,10 @@ Full table: [Annex B — KPP Targets](annexes/B-kpp-targets.md)
 
 **This is a conceptual engineering study.** TKI-30-66 ("Splash") is not a program of record, procured system, or validated weapon. All performance figures are notional targets subject to analysis and test. No endorsement by any government, military service, or manufacturer is implied or intended.
 
-This documentation is provided for concept exploration and engineering discussion. Any transition to hardware development requires legal review (including ITAR/export control), safety qualification, and appropriate authority approval.
-
-Propellant weapons carry inherent safety hazards including backblast, hearing injury, and ammunition handling risks. Conceptual descriptions do not constitute training or authorization for use.
+Propellant weapons carry inherent safety hazards including backblast and fragment hazard downrange. Conceptual descriptions do not constitute training or authorization for use.
 
 ---
 
 ## Getting Started
 
-Begin with [01 — Concept Overview](docs/01-concept-overview.md) for the problem statement and design philosophy, then proceed through the numbered documents in order.
-
-For quick reference on system comparisons, see [Annex A — Baseline Comparison](annexes/A-baseline-comparison.md). For engineering trade details, see [05 — Key Design Trades](docs/05-key-design-trades.md) and [Annex C — Trades Matrix](annexes/C-trades-matrix.md).
+Begin with [01 — Concept Overview](docs/01-concept-overview.md), then proceed through numbered documents in order.

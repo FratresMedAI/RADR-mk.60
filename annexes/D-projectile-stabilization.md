@@ -1,57 +1,50 @@
 # Annex D — Projectile Stabilization
 
 **Document ID:** TKI-30-66 / ANX-D  
-**Version:** 0.3.0  
-**Status:** Conceptual — engineering notional
+**Version:** 0.4.0  
+**Status:** Conceptual
 
-System context: [06 — System Description](../docs/06-system-description.md)
-
----
-
-## Design Overview
-
-The baseline combines rifled-barrel initial spin with spring-loaded, locking deployable fins. This provides stable flight for the guided terminal phase after LOBL launch.
-
-Guidance corrections from the mini IR seeker act on deployable fins via the autopilot. Corrections should not demand high authority before fin lock (~15–30 m downrange).
+Context: [06 — System Description](../docs/06-system-description.md)
 
 ---
 
-## Rifled Barrel
+## Overview
 
-| Parameter | Value | Notes |
-|-----------|-------|-------|
-| Caliber | 50 mm | Nominal bore |
-| Barrel length | ~350–450 mm | ~7–9 calibers |
-| Twist rate | 1:120 mm (notional) | Subject to stability analysis |
-| Spin rate at muzzle | ~800–1200 RPM | Depends on muzzle velocity |
+TKI-30-66 fires a **fin-stabilized guided rocket**, not a spin-stabilized kinetic rod. Baseline architecture:
 
----
+- **Smoothbore launch tube** (notional)
+- **Deployable or fixed fins** for flight stability
+- **Autopilot** fin control for IR homing maneuvers
+- **No sabot discard** — integrated rocket body
 
-## Deployable Fin Assembly
-
-| Parameter | Value |
-|-----------|-------|
-| Fin count | 4 (baseline) |
-| Deployment style | Umbrella / pop-out with mechanical lock |
-| Spring redundancy | **Dual springs per fin** |
-| Fin span (deployed) | ~80–100 mm |
-| Deployment distance | 15–30 m downrange |
-| Control authority | Fin deflection for terminal homing post-lock |
-
-### Deployment Sequence
-
-1. Launch impulse; sabot discard 5–15 m
-2. Setback triggers fin deployment 10–20 m
-3. Mechanical lock engages 15–30 m
-4. Seeker homing corrections authorized ≥ 30 m
+Rifled twist for long rods is **not** baseline.
 
 ---
 
-## Interaction with IR Seeker
+## Fin Configuration
 
-The mini IR seeker in the round nose must maintain track through fin deployment shock. Seeker window protection and soft-mount isolation are design requirements.
+| Parameter | Notional |
+|-----------|----------|
+| Fin count | 4 |
+| Span | ~80–100 mm deployed or fixed |
+| Control | Autopilot deflection for terminal homing |
 
-Roll rate from rifling decays after fin deploy; seeker roll compensation in autopilot firmware may be required for quad-cell seekers.
+---
+
+## Flight Phases
+
+| Phase | Distance | Notes |
+|-------|----------|-------|
+| Launch | 0 m | Backblast mitigation; seeker may arm post-launch |
+| Boost | 0–50 m | Fin authority ramps |
+| Midcourse | 50 m – fuze | IR homing |
+| Terminal | Fuze actuation | BB dispersal; minimal stability required |
+
+---
+
+## Warhead / CG Considerations
+
+Ti BB payload placed **forward or amidships** per fuze design. CG shift post-dispersal is acceptable — engagement complete.
 
 ---
 
@@ -59,23 +52,18 @@ Roll rate from rifling decays after fin deploy; seeker roll compensation in auto
 
 | Failure | Effect | Mitigation |
 |---------|--------|------------|
-| Fin fails to deploy | Yaw divergence; miss | Dual springs per fin; 100% production check |
-| One fin hangs up | Spiral trajectory | Tolerance control |
-| Seeker shock damage | Loss of track | Isolation mount; window protection |
+| Fin control failure | Miss | Factory autopilot QA |
+| Seeker shock | Track loss | Isolation mount |
+| Instability pre-dispersal | Fuze error | Aero test |
 
 ---
 
-## Test Plan (Proposed)
+## Open Engineering
 
-| Test | Purpose | Phase |
-|------|---------|-------|
-| Fin deployment bench | Lock and timing | Phase 1 |
-| Seeker live-fire shock | Track through launch | Phase 2 |
-| Guided flight vs. UAS target | End-to-end Pk | Phase 3 |
+- Smoothbore vs. rifled tube for launch — **TBD** (smoothbore preferred for rocket)
 
 ---
 
 ## Related Documents
 
-- [06 — System Description](../docs/06-system-description.md)
-- [Annex C — Trades Matrix](C-trades-matrix.md)
+- [05 — Key Design Trades](../docs/05-key-design-trades.md)

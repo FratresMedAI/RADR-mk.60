@@ -1,159 +1,113 @@
 # 05 — Key Design Trades
 
 **Document ID:** TKI-30-66 / DOC-05  
-**Version:** 0.3.0  
+**Version:** 0.4.0  
 **Status:** Conceptual
 
 Trade matrix: [Annex C — Trades Matrix](../annexes/C-trades-matrix.md)
 
 ---
 
-## 0. Reliability as Primary Design Driver
+## 0. KISS and Lightweight as Primary Drivers
 
-When trades conflict, **reliability wins** over unit cost, peak range, and feature count.
+When trades conflict, **simplicity and low mass** take priority over peak range, feature count, and lowest unit cost at any quality tier.
 
-| Reliability Rule | Implementation |
-|------------------|----------------|
-| Test before fire | Mandatory pre-fire BIT at breech contact; no-fire on fail |
-| Minimize round electronics | Quad-cell IR only — no imaging FPA, no radar on baseline |
-| Reuse smart hardware | Tracker + BIT logic in launcher (field-replaceable module) |
-| Mechanical over pyrotechnic | Spring fin deploy; mechanical breech interlock |
-| Redundancy on critical mechanics | Dual springs per fin |
-| Conservative propulsion | ~650 m/s muzzle velocity class — lower shock, higher seeker survival |
-| Single guidance SKU | One round type; reject dual-mode seekers |
-| Factory round QA | 100% BIT at production; lot sampling for live function |
+| Rule | Implementation |
+|------|----------------|
+| One rocket SKU | Ti BB flak + onboard IR only |
+| No external designator | Gunner lock-and-fire |
+| Minimum electronics | Seeker + fuze + autopilot on rocket |
+| Lightweight structure | 18 in max OAL; mass goal ~2.3 kg |
 
 ---
 
-## 1. Caliber: Size vs. Payload / Guidance
+## 1. Caliber: Size vs. Rocket Volume
 
-### Options
+| Caliber | Launcher Mass | Rocket Capacity | Backblast |
+|---------|---------------|-----------------|-----------|
+| 40 mm | Lightest | Smallest BB load | Lowest |
+| **50 mm ★** | **~7 kg** | **Balanced** | **Low–moderate** |
+| 58–66 mm | Heavier | More BBs | Moderate |
 
-| Caliber | Launcher Mass | Round Mass | KE at 600 m/s | Backblast |
-|---------|---------------|------------|---------------|-----------|
-| 40 mm | ~6.0 kg | ~1.8 kg | Low | Low |
-| **50 mm ★** | **~8.0 kg** | **~2.5 kg** | **Moderate** | **Low–moderate** |
-| 58–66 mm | ~9.5 kg | ~3.5 kg | High | Moderate |
-
-### Analysis
-
-Smaller caliber reduces carry burden but limits seeker aperture, propellant volume, and terminal kinetic energy. At 40 mm, defeating Group 2 UAS (9–25 kg) at 600 m becomes marginal. At 58–66 mm, the system approaches Carl Gustaf mass without proportional guidance benefit.
-
-### Recommendation
-
-**50 mm nominal** within a 40–66 mm design envelope.
+**Recommendation:** **50 mm nominal** within 40–66 mm envelope.
 
 ---
 
-## 2. Backblast Mitigation vs. Performance
+## 2. Rocket Length
 
-### Options
+| Option | Mass | BB payload | Pack fit |
+|--------|------|------------|----------|
+| ~305 mm (12 in) | Lightest | Smallest cloud | Best |
+| **≤ 457 mm (18 in) ★** | **Moderate** | **More BBs** | **Acceptable** |
+| > 457 mm | Heavy | Marginal gain | Poor |
 
-| Approach | Backblast Reduction | Velocity Impact | Complexity |
-|----------|--------------------|-----------------|------------|
-| Countermass (recoilless) | High | Moderate loss | Low |
-| Soft launch (eject then ignite) | High | Low loss | Moderate |
-| **Hybrid ★** | **High** | **Moderate loss** | **Moderate** |
-| Conventional (minimal mitigation) | None | Maximum | Lowest |
-
-### Recommendation
-
-**Hybrid backblast mitigation** selected for Phase 1 study.
+**Recommendation:** **Up to 457 mm (18 in) maximum**, design toward minimum mass within envelope.
 
 ---
 
-## 3. Reusable Launcher vs. Disposable Tube
+## 3. Payload Type (Critical)
 
-### Recommendation
+| Payload | vs. Hover UAS | Collateral | Logistics |
+|---------|---------------|------------|-----------|
+| Unitary kinetic rod | High precision | Low (miss = rod impact) | Simple |
+| Flechette pack | Moderate spread | Moderate | Moderate |
+| HE-frag | High | High | Regulated |
+| **Ti BB flak ★** | **Good cloud coverage** | **Moderate BB hazard** | **Simple; non-explosive** |
 
-**Reusable flip-breech launcher** with integrated IR tracker (reusable guidance asset).
-
----
-
-## 4. Guidance Architecture (Critical Trade)
-
-**Constraint:** No laser beam-riding.
-
-### Options
-
-| Architecture | Reliability | Round Cost | Notes |
-|--------------|-------------|------------|-------|
-| **Launcher IR + quad-cell round IR (LOBL) ★** | **High** | Moderate | BIT before fire; proven architecture |
-| Imaging IR FPA on round | Moderate | High | FPA damage, calibration drift |
-| FMCW radar on round | Moderate | High | RF failure modes; active signature |
-| Command guidance only (datalink) | Low–moderate | Low round | Link break = miss; EW vulnerable |
-| Round-only seeker (no launcher tracker) | Moderate | Higher | Harder LOBL; more operator error |
-
-### Analysis
-
-**Javelin model + reliability hardening:** Reusable tracker runs BIT on every round before fire. Quad-cell seeker on round is the **simplest IR homing head** — four detector elements, no microbolometer array, no moving parts. Failed rounds never leave the tube.
-
-**Rejected for reliability:** Imaging FPAs (fragile), radar seekers (complex RF chain), dual-mode guidance (twice the failure paths).
-
-### Recommendation
-
-**Launcher IR tracker + rugged quad-cell IR seeker on round (LOBL) + mandatory pre-fire BIT.**
-
-Radar and imaging seekers **deprioritized** unless reliability case approved in Phase 2 review.
+**Recommendation:** **Ti BB flak dispersal** — matches rocket-delivered flak concept; lighter than HE; broader defeat than single rod.
 
 ---
 
-## 5. Kinetic Rod vs. Flechette Pack vs. HE
+## 4. Guidance Architecture (Critical)
 
-### Recommendation
+| Architecture | Employment | Cost | Notes |
+|--------------|------------|------|-------|
+| **Onboard IR fire-and-forget ★** | **Gunner lock-and-fire** | **~$200–400/rd** | **Baby MANPADS class** |
+| Laser beam-riding | Designator required | Lower seeker | **Rejected** |
+| Launcher-tracked LOBL | 2-step cue | Launcher complexity | **Removed** |
+| Unguided | Cheap | Low Pk | Insufficient |
 
-**Unitary kinetic rod baseline.** Flechette variant reserved for Phase 2 if swarm MOE is mandated.
-
----
-
-## 6. Rifling vs. Fin-Only Stabilization
-
-### Recommendation
-
-**Rifled barrel + spring-loaded locking deployable fins.**
+**Recommendation:** **Onboard IR seeker, fire-and-forget**, drone-optimized (simplified vs. full Stinger).
 
 ---
 
-## 7. Single Operator vs. Two-Man Team
+## 5. Dispersal Mechanism (Open)
 
-### Options
+| Option | Pros | Cons |
+|--------|------|------|
+| Proximity IR fuze | Adapts to miss distance | CCM, fuze reliability |
+| Timed fuze | Simple | Range/wind sensitivity |
+| Seeker-gated | Uses track quality | Software complexity |
 
-| Configuration | Pros | Cons |
-|---------------|------|------|
-| **Gunner + ammo bearer ★** | **Sustained fire; security** | **2 personnel** |
-| Solo gunner (3 rounds on launcher pouch) | Fewer personnel | Slow reload; no security |
+**Baseline:** Not locked — proximity IR fuze preferred in analysis; see open questions in README.
 
-### Recommendation
+---
 
-**Two-man team:** gunner + ammo bearer. No separate designator required with integrated launcher tracker.
+## 6. Backblast vs. Performance
+
+**Recommendation:** **Hybrid backblast mitigation** with moderate muzzle velocity (~650 m/s class).
+
+---
+
+## 7. Launcher Life Cycle
+
+**Recommendation:** **Reusable flip-breech launcher** — no disposable tube.
 
 ---
 
 ## Trade Decision Summary
 
-| Trade | Baseline Selection | Status |
-|-------|-------------------|--------|
-| **Design priority** | **Reliability first** | Set |
+| Trade | Baseline | Status |
+|-------|----------|--------|
+| Philosophy | KISS, lightweight, cheap per shot | Set |
 | Caliber | 50 mm | Set |
-| Backblast | Hybrid mitigation | Open (Phase 1 test) |
-| Launcher | Reusable breech + IR tracker + BIT | Set |
-| Guidance | Launcher IR + quad-cell round IR (LOBL) | Set |
-| Pre-fire BIT | Mandatory | Set |
-| Propulsion | Moderate velocity (~650 m/s) | Set |
-| Payload | Unitary rod | Set |
-| Stabilization | Rifling + dual-spring deployable fins | Set |
+| Rocket length | ≤ 457 mm (18 in max) | Set |
+| Payload | Ti BB flak | Set |
+| Guidance | Onboard IR F&F | Set |
+| Beam-riding / LOBL / BIT | Removed | — |
+| Kinetic rod | Removed | — |
+| Launcher | Reusable tube, simple sight | Set |
 | Team | Gunner + ammo bearer | Set |
-| Radar / imaging seeker | **Rejected baseline** | Deprioritized |
-| Flechette variant | **Rejected baseline** | SKU complexity |
-
----
-
-## Related Documents
-
-| Document | Purpose |
-|----------|---------|
-| [Annex C — Trades Matrix](../annexes/C-trades-matrix.md) | Full matrix |
-| [06 — System Description](06-system-description.md) | Integrated system view |
 
 ---
 
