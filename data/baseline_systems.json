@@ -1,49 +1,160 @@
 {
   "metadata": {
-    "project": "TKI-30-66 (Splash)",
-    "version": "0.4.0",
+    "project": "RADR — Lightweight Recoilless Anti-Drone System",
+    "acronym": "RADR",
+    "version": "0.7.0",
     "status": "conceptual",
     "last_updated": "2026-05-24",
-    "notes": "v0.4.0: Ti BB flak warhead, onboard IR fire-and-forget, rocket up to 457 mm (18 in), lightweight launcher without tracker."
+    "notes": "v0.7.0: RADR (Lightweight Recoilless Anti-Drone System). Renamed from legacy program ID. Squad/SOF speed-first Ti/steel cube flak, proximity+timed fuze, Gustav deadbolt breech, ravioli-can round."
+  },
+  "locked_specs": {
+    "caliber_mm": 60,
+    "rocket_length_mm": 457,
+    "rocket_length_in": 18,
+    "launcher_length_mm": 914,
+    "launcher_length_in": 36,
+    "seeker_section_mm": 100,
+    "warhead": {
+      "type": "forward_cone_flak",
+      "cube_count": 300,
+      "cube_size_mm": 7,
+      "cube_material": "ti_steel_alloy",
+      "cube_edge_finish": "rough_edged",
+      "includes_small_burster": true,
+      "burster_role": "disperser_only",
+      "cone_width_ft": { "min": 10, "max": 12 },
+      "detonation_standoff_ft": 20
+    },
+    "fuze": {
+      "status": "locked",
+      "primary": "proximity",
+      "backup": "timed",
+      "requirement": "high_reliability"
+    },
+    "guidance": {
+      "type": "onboard_ir_fire_and_forget",
+      "maneuver_class": "low_maneuver",
+      "control_surfaces": "small_movable_canards_near_nose",
+      "high_off_boresight": false,
+      "lock_before_launch": true,
+      "lock_indication": "audible_tone"
+    },
+    "fins": {
+      "count": 4,
+      "type": "swept_spring_loaded",
+      "location": "base",
+      "deploy": "on_exit"
+    },
+    "motor": {
+      "type": "progressive_burn",
+      "initial_phase_s": { "min": 1, "max": 2 },
+      "initial_thrust": "lower",
+      "ramp": "increasing_to_terminal_velocity"
+    },
+    "round_packaging": {
+      "type": "ravioli_can_protective_tube",
+      "cap": "pull_off",
+      "removed_by": "soldier_during_loading"
+    },
+    "breech": {
+      "style": "gustav_flip",
+      "bolt": "spring_loaded",
+      "lock": "deadbolt_positive"
+    },
+    "launcher_controls": {
+      "front_trigger": "seeker_power_and_lock_tone",
+      "rear_trigger": "fire_requires_front_held"
+    },
+    "sights": {
+      "primary": "holographic_square_reticle",
+      "thermal_overlay": "under_evaluation"
+    },
+    "center_of_gravity": "slightly_rear_biased",
+    "backblast": {
+      "yards_max": 10,
+      "feet_max": 30,
+      "status": "locked"
+    },
+    "operational_flow": [
+      "open_breech_pull_spring_bolt_swing_open",
+      "pop_top_off_protective_tube",
+      "load_tube_into_launcher",
+      "close_breech_auto_locks",
+      "hold_front_trigger_seeker_tone_at_lock",
+      "pull_rear_trigger_while_holding_front",
+      "open_breech_empty_tube_drops_repeat"
+    ],
+    "philosophy": {
+      "echelon": "squad_sof",
+      "primary_defense": "speed_to_target",
+      "kiss_rugged": true,
+      "one_person_reload": true,
+      "terminal_flak": true
+    },
+    "mass_kg": {
+      "rocket_max": 3.5,
+      "launcher_empty_max": 5.5,
+      "system_one_round_max": 9.0
+    },
+    "range_m": {
+      "effective_goal": 1000,
+      "min_engagement": 150
+    },
+    "motor_notional": {
+      "grain_length_mm": 260,
+      "propellant_mass_kg": 1.2,
+      "burn_time_s": 3.2,
+      "low_thrust_initial_s": 2,
+      "terminal_velocity_at_1000m_mps": { "min": 330, "max": 370 },
+      "time_of_flight_1000m_s": { "min": 4.5, "max": 5.0 }
+    },
+    "rejected_concepts": [
+      "laser_beam_riding",
+      "launcher_tracked_guidance",
+      "kinetic_penetrator_rod",
+      "high_off_boresight_autopilot",
+      "fmcw_radar_seeker"
+    ]
   },
   "systems": [
     {
-      "id": "tki-30-66",
-      "name": "TKI-30-66 (Splash)",
-      "codename": "Splash",
+      "id": "radr",
+      "name": "RADR",
+      "full_name": "Lightweight Recoilless Anti-Drone System",
       "status": "conceptual",
       "manufacturer": "Notional",
-      "caliber_mm": 50,
-      "caliber_envelope_mm": { "min": 40, "max": 66 },
-      "launcher_mass_kg": 7.0,
-      "round_mass_kg": 2.3,
+      "caliber_mm": 60,
+      "launcher_mass_kg_max": 5.5,
+      "launcher_length_mm": 914,
+      "round_mass_kg_max": 3.5,
       "round_length_mm": 457,
-      "round_length_note": "457 mm maximum; design toward minimum mass within envelope",
       "reusable": true,
-      "guidance": "onboard_ir_fire_and_forget",
-      "payload": "ti_bb_flak_dispersal",
-      "warhead": "titanium_bb_cloud",
+      "guidance": "onboard_ir_fire_and_forget_low_maneuver",
+      "payload": "300x7mm_ti_steel_forward_cone_flak",
+      "seeker_section_mm": 100,
       "effective_range_m": {
         "min": 150,
-        "nominal": 600,
-        "max_aspirational": 800
+        "goal": 1000
       },
-      "backblast_class": "low_moderate",
-      "backblast_danger_zone_m": 30,
+      "backblast_danger_zone_yards": 10,
+      "backblast_danger_zone_ft": 30,
+      "fuze": "proximity_primary_timed_backup",
+      "breech": "gustav_flip_spring_bolt_deadbolt",
+      "round_packaging": "ravioli_can_pull_off_cap",
+      "sights": "holographic_square_reticle",
       "rate_of_fire_rpm": 3,
       "cost_per_shot_usd": { "goal": 300, "range_low": 200, "range_high": 400 },
-      "primary_role": "terminal_c_uas_flak",
-      "typical_targets": ["small_uas", "medium_uas", "fpv_drone"],
+      "primary_role": "squad_sof_terminal_c_uas_flak",
+      "typical_targets": ["small_uas", "medium_uas", "fpv_drone", "loitering_munition_class"],
       "squad_suitable": true,
       "team_size": 2,
       "team_roles": ["gunner", "ammo_bearer"],
-      "notes": "Guided flak rocket: onboard IR seeker (baby MANPADS class), Ti BB dispersal warhead, no laser or launcher tracker."
+      "notes": "Speed-first 60 mm system. Progressive motor. Ti/steel cube forward cone. Proximity+timed fuze. Gustav deadbolt breech. Ravioli-can round. 1000 m goal."
     },
     {
       "id": "fim-92-stinger",
       "name": "FIM-92 Stinger",
       "status": "fielded",
-      "manufacturer": "Raytheon / various",
       "caliber_mm": 70,
       "launcher_mass_kg": 15.2,
       "round_mass_kg": 10.1,
@@ -51,117 +162,68 @@
       "reusable": false,
       "guidance": "infrared_homing",
       "payload": "blast_fragmentation",
-      "effective_range_m": {
-        "min": 500,
-        "nominal": 4000,
-        "max": 4800
-      },
-      "backblast_class": "moderate",
-      "backblast_danger_zone_m": 15,
-      "rate_of_fire_rpm": 1,
-      "cost_per_shot_usd": { "approximate": 120000 },
+      "effective_range_m": { "min": 500, "nominal": 4000, "max": 4800 },
       "primary_role": "manpads_sam",
-      "typical_targets": ["aircraft", "helicopters", "large_uas"],
-      "squad_suitable": false,
-      "notes": "Full-scale IR homing reference; TKI is deliberately smaller and cheaper."
+      "squad_suitable": false
     },
     {
       "id": "9k38-igla",
       "name": "9K38 Igla (Igla-1 class)",
       "status": "fielded",
-      "manufacturer": "Various",
       "caliber_mm": 72,
       "launcher_mass_kg": 16.0,
       "round_mass_kg": 10.8,
-      "round_length_mm": 1670,
-      "reusable": false,
       "guidance": "infrared_homing",
       "payload": "blast_fragmentation",
-      "effective_range_m": {
-        "min": 500,
-        "nominal": 3500,
-        "max": 5200
-      },
-      "backblast_class": "moderate",
-      "backblast_danger_zone_m": 15,
-      "cost_per_shot_usd": { "approximate": 80000 },
       "primary_role": "manpads_sam",
-      "typical_targets": ["aircraft", "helicopters"],
-      "squad_suitable": false,
-      "notes": "Baby Stinger/Igla style guidance reference for TKI seeker class."
+      "squad_suitable": false
     },
     {
       "id": "m72-law",
       "name": "M72 LAW",
       "status": "fielded",
-      "manufacturer": "Various",
       "caliber_mm": 66,
       "launcher_mass_kg": 3.2,
       "round_mass_kg": 3.2,
-      "round_length_mm": 890,
-      "reusable": false,
-      "guidance": "unguided",
-      "payload": "heat",
-      "effective_range_m": { "min": 50, "nominal": 200, "max": 350 },
-      "backblast_class": "moderate",
-      "backblast_danger_zone_m": 40,
-      "cost_per_shot_usd": { "approximate": 500 },
+      "effective_range_m": { "min": 50, "max": 350 },
       "primary_role": "anti_armor_disposable",
-      "squad_suitable": true,
-      "notes": "Mass/backblast comparison."
+      "squad_suitable": true
     },
     {
       "id": "carl-gustaf-m4",
       "name": "Carl Gustaf M4",
       "status": "fielded",
-      "manufacturer": "Saab",
       "caliber_mm": 84,
       "launcher_mass_kg": 6.6,
       "round_mass_kg": 3.2,
       "round_length_mm": 460,
       "reusable": true,
       "guidance": "unguided",
-      "payload": "multi_role",
-      "effective_range_m": { "min": 100, "nominal": 500, "max": 1000 },
-      "backblast_class": "significant",
+      "effective_range_m": { "max": 1000 },
       "backblast_danger_zone_m": 60,
-      "cost_per_shot_usd": { "approximate": 3000 },
       "primary_role": "multi_role_anti_armor",
       "squad_suitable": true,
-      "notes": "Breech-loader form-factor reference."
+      "notes": "Breech heritage reference."
     },
     {
       "id": "c-uas-rifle-direct-fire",
       "name": "Generic C-UAS Rifle / MG",
       "status": "fielded",
       "caliber_mm": 5.56,
-      "launcher_mass_kg": 4.0,
-      "round_mass_kg": 0.012,
-      "round_length_mm": 57,
-      "reusable": true,
-      "guidance": "unguided",
-      "payload": "bullet",
-      "effective_range_m": { "min": 50, "nominal": 200, "max": 400 },
-      "backblast_class": "minimal",
-      "cost_per_shot_usd": { "approximate": 1 },
+      "effective_range_m": { "max": 400 },
       "primary_role": "direct_fire_c_uas",
-      "squad_suitable": true,
-      "notes": "Low cost, low Pk vs maneuvering UAS."
+      "squad_suitable": true
     },
     {
       "id": "coyote-block2",
       "name": "Coyote Block 2",
       "status": "fielded",
-      "manufacturer": "Raytheon",
       "round_mass_kg": 5.9,
-      "reusable": false,
       "guidance": "rf_datalink_active_radar",
-      "payload": "interceptor_warhead",
-      "effective_range_m": { "min": 500, "nominal": 3000, "max": 5000 },
+      "effective_range_m": { "max": 5000 },
       "cost_per_shot_usd": { "approximate": 150000 },
       "primary_role": "interceptor_missile",
-      "squad_suitable": false,
-      "notes": "Higher-layer comparison."
+      "squad_suitable": false
     }
   ]
 }

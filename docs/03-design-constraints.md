@@ -1,72 +1,70 @@
 # 03 — Design Constraints
 
-**Document ID:** TKI-30-66 / DOC-03  
-**Version:** 0.4.0  
+**Document ID:** RADR / DOC-03  
+**Version:** 0.7.0  
 **Status:** Conceptual
 
 ---
 
-## Physical / Form Factor
+## Physical
 
-| Constraint | Limit | Notes |
-|------------|-------|-------|
-| Employment | Shoulder-fired | No tripod baseline |
-| Launcher length | ≤ 950 mm | Carry |
-| Rocket OAL | ≤ 457 mm (18 in) | User max |
-| Rocket diameter | ~50 mm class | 40–66 mm envelope |
-| Launcher + 4 rockets | ≤ 22 kg team load | Lightweight goal |
-| Breech | Flip-open rear | Gustav-like |
+| Constraint | Limit |
+|------------|-------|
+| Caliber | **60 mm** |
+| Rocket OAL | **457 mm (18 in) max** |
+| Rocket mass | **≤ 3.5 kg** |
+| Launcher OAL | **914 mm (36 in)** |
+| Launcher mass (empty) | **≤ 5.5 kg** |
+| System (launcher + 1 round) | **≤ 9.0 kg** |
+| Center of gravity | **Slightly rear-biased** |
 
 ---
 
-## Interface / Compatibility
+## Warhead / Fuze
 
 | Constraint | Requirement |
 |------------|-------------|
-| External designator | **Not used** |
-| Laser / beam-riding | **Not supported** |
-| Squad radio cueing | Optional |
-| Vehicle mount | Not required |
+| Fragments | **300 × 7 mm** Ti/steel, rough-edged |
+| Pattern | **Forward cone**, ~10–12 ft @ ~20 ft |
+| Fuze | **Proximity primary + timed backup** |
+| Burster | Disperser only — not primary kill |
 
 ---
 
-## Environmental
-
-| Parameter | Requirement |
-|-----------|-------------|
-| Operating temperature | -25 to +45 °C |
-| Rain / dust | Seeker window sealed; IR contrast may degrade |
-
----
-
-## Cost and Producibility
-
-| Constraint | Target |
-|------------|--------|
-| Rocket unit cost (10k+) | ≤ $500 threshold; $300 objective |
-| Launcher unit cost | ≤ $8,000 |
-| Manufacturing | Conventional tube; commercial IR seeker tier |
-
----
-
-## Safety / Backblast / Fragments
+## Flight / Guidance
 
 | Constraint | Requirement |
 |------------|-------------|
-| Backblast rear zone | ≤ 40 m threshold; ≤ 30 m objective |
-| Enclosed firing | Not authorized |
-| BB hazard | Documented downrange footprint for ROE |
-| Warhead | Non-explosive Ti BB — reduced blast vs. HE |
+| Seeker | **100 mm** IR F&F; lock before launch |
+| Canards | Small, movable, **near nose**; low-maneuver only |
+| Fins | **4** swept spring-loaded at **base**; deploy on exit |
+| Motor | Progressive: **reduced thrust 1–2 s**, then ramp |
+| Off-boresight | **Not** high off-boresight |
 
 ---
 
-## Logistics / Training
+## Launcher
 
-| Constraint | Requirement |
-|------------|-------------|
-| Crew | 2 minimum |
-| Round | Sealed consumable; factory QA |
-| Launcher | Unit-level maintenance |
+| Item | Requirement |
+|------|-------------|
+| Tube round | **Ravioli-can** protective tube; **pull-off cap** |
+| Breech | **Gustav-style flip**; spring-loaded bolt; **deadbolt lock** |
+| Triggers | Front = seeker + tone; rear = fire (front held) |
+| Seating | Electrical contacts + pressure sensor |
+| Post-fire | Empty tube drops on breech open |
+| Backblast | **≤ 10 yards (30 ft)** rear |
+| Sights | Holographic **square reticle**; thermal overlay under evaluation |
+| No laser designator | Required |
+
+---
+
+## Cost / Environment
+
+| Item | Target |
+|------|--------|
+| Operating temp | -25 to +45 °C |
+| Rocket unit cost | ≤ $500 / goal $300 |
+| Squad/SOF issue | Specialist teams — not every soldier |
 
 ---
 

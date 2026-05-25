@@ -1,141 +1,162 @@
 # 06 — System Description
 
-**Document ID:** TKI-30-66 / DOC-06  
-**Version:** 0.4.0  
-**Status:** Conceptual
-
-Stabilization: [Annex D — Projectile Stabilization](../annexes/D-projectile-stabilization.md)
+**Document ID:** RADR / DOC-06  
+**Version:** 0.7.0  
+**Status:** Conceptual — refined baseline
 
 ---
 
 ## System Overview
 
-TKI-30-66 (Splash) comprises:
-
-1. **Launcher** — Reusable recoilless-style tube with flip breech (~7 kg empty)
-2. **Guided rocket** — Lightweight round ≤ 457 mm, onboard IR seeker, Ti BB flak warhead
-
-Two-man team: **gunner** + **ammo bearer**.
+1. **Launcher** — 36 in reusable recoilless tube, ≤ 5.5 kg empty, Gustav flip breech with spring bolt and deadbolt lock, holographic sight.  
+2. **Rocket** — 60 mm × 18 in round in ravioli-can tube, ≤ 3.5 kg, IR seeker + progressive motor + Ti/steel cube flak.
 
 ```mermaid
-flowchart LR
-  subgraph launcher [ReusableLauncher]
-    Tube[RecoillessTube]
-    Breech[FlipBreech]
-    Sight[SimpleOpticalSight]
+flowchart TB
+  subgraph L [Launcher]
+    Breech[GustavFlip_Deadbolt]
+    Sight[HoloSquareReticle]
+    Trig[DualTrigger_Tone]
   end
-  subgraph rocket [GuidedRocket]
-    Prop[Propulsion]
-    Seeker[OnboardIRSeeker]
-    Fuze[DispersalFuze]
-    Warhead[TiBB_Payload]
-    Fins[FinStabilizedBody]
+  subgraph R [Rocket_18in]
+    Seek[IR_100mm]
+    Canard[NoseCanards_LowManeuver]
+    Motor[ProgressiveMotor]
+    WH[TiSteelCubeCone]
+    Fin[4xSpringFins]
   end
-  Gunner[Gunner] --> launcher
-  launcher -->|Launch| rocket
-  Seeker -->|FireAndForget| UAS[TargetUAS]
-  Warhead -->|BB_Cloud| UAS
+  Gunner --> L
+  L -->|Launch| R
+  R -->|1000m_goal| UAS[UAS]
+  WH -->|20ft_ProxTimed| UAS
 ```
 
 ---
 
 ## Launcher
 
-| Subsystem | Description |
-|-----------|-------------|
-| Barrel / tube | Smoothbore recoilless launch tube, ~50 mm bore |
-| Breech | Flip-open rear; mechanical lock; spent case extraction |
-| Sight | Simple optical or optional 1.5×; gunner acquires target for seeker lock |
-| Trigger group | Safety, trigger, seeker lock indicator |
-| Countermass | Hybrid backblast mitigation |
+| Parameter | Spec |
+|-----------|------|
+| Length | **36 in (914 mm)** |
+| Mass (empty) | **≤ 5.5 kg** |
+| Bore | **60 mm** smoothbore (baseline) |
+| Breech | **Gustav-style flip**; **spring-loaded bolt**; **positive deadbolt-style lock** (bolt-action feel) |
+| Round load | **Ravioli-can** protective tube; soldier **pulls off cap** before insert |
+| Seating | Pressure sensor + electrical contacts |
+| Triggers | **Front:** seeker power + **audible lock tone** · **Rear:** fire (requires front held) |
+| Sights | **Advanced holographic**, **square reticle**; basic **thermal overlay** under evaluation |
+| CoG (launcher) | **Slightly rear-biased** for shouldering |
+| Backblast | **≤ 10 yards (30 ft)** rear — locked |
+| Tracker | **None** — dumb tube |
 
-| Parameter | Notional |
-|-----------|----------|
-| Empty mass | ~7.0 kg |
-| Length | ~800–900 mm |
-| Service life | ≥ 500 rockets |
+### Launcher Mass (Notional)
 
-**No** integrated laser designator, **no** launcher-mounted tracker, **no** breech BIT module.
-
-### Operation
-
-1. Open breech; insert rocket
-2. Close and lock breech
-3. Gunner acquires UAS; achieve IR seeker lock (audio/visual ready)
-4. Fire — rocket guides autonomously
-5. Extract spent case; reload
-
----
-
-## Guided Rocket
-
-| Section (typical aft to front) | Component | Function |
-|------------------------------|-----------|----------|
-| Aft | Propulsion | Launch; countermass |
-| Mid | Fin assembly | Stability and maneuver |
-| Mid-forward | Autopilot | Fin deflection from seeker |
-| Forward-mid | Dispersal fuze + Ti BB payload | Terminal cloud release |
-| Forward | IR seeker dome | Fire-and-forget homing |
-
-| Parameter | Notional |
-|-----------|----------|
-| OAL | ≤ 457 mm (18 in) |
-| Mass | ~2.3 kg (goal) |
-| Caliber | 50 mm body |
-
-### Propulsion
-
-Single-stage; hybrid backblast mitigation; ~650 m/s muzzle velocity (notional).
-
-### Guidance — Onboard IR (Fire-and-Forget)
-
-| Parameter | Notional |
-|-----------|----------|
-| Type | Simplified IR homing — baby Stinger / Igla class; drone-optimized |
-| Lock | Seeker lock before fire; then autonomous |
-| Post-launch | No human track required |
-| Mass (seeker section) | ~200–350 g |
-| Cost contribution | Dominates round cost |
-
-**Honest limit:** Not full MANPADS imaging seeker performance at this size and price point.
-
-### Warhead — Ti BB Flak
-
-| Parameter | Notional |
-|-----------|----------|
-| Payload | Titanium ball bearings in dispersal carrier |
-| Function | Eject BB cloud near target — flak defeat |
-| Fuze | Proximity IR or timed (TBD) |
-| Kill mechanism | Multiple strikes on rotors, motor, wing, battery |
-
-Near-miss still effective if cloud intersects airframe volume — unlike kinetic rod.
+| Component | kg |
+|-----------|-----|
+| Tube + breech mechanism | 3.2–3.8 |
+| Grips, pad, holographic sight | 0.9–1.2 |
+| Contacts + sensors | 0.2–0.3 |
+| **Total** | ≤ **5.5** |
 
 ---
 
-## Employment
+## Rocket — 60 mm × 18 in
 
-| Role | Responsibilities |
-|------|----------------|
-| Gunner | Acquire, lock, fire, reload |
-| Ammo bearer | Spare rockets, security |
+Factory-finished round ships in a **robust ravioli-can protective tube** with **pull-off cap**. Tube protects seeker dome and cube pack in storage and transit; acts as launch container until ejected after firing.
 
-### Engagement Sequence
+### Mass Breakdown (Notional)
 
-1. Detect and ID (ROE)
-2. Gunner acquires in sight; seeker achieves lock
-3. Fire
-4. Rocket homing; fuze disperses BB cloud at terminal
-5. BDA; reload if needed
+| Component | kg | Notes |
+|-----------|-----|-------|
+| Warhead | 0.95–1.15 | 300 × 7 mm **Ti/steel** rough-edged cubes; small burster |
+| Seeker + avionics | 0.45–0.55 | **100 mm** IR F&F |
+| Motor + propellant | 1.10–1.30 | Progressive grain |
+| Structure, fins, canards | 0.35–0.45 | 4 base fins + nose canards |
+| **Total** | ≤ **3.5** | Locked cap |
+
+### Layout (Aft → Front)
+
+| Section | Function |
+|---------|----------|
+| Motor + nozzle | Progressive burn; speed-to-target |
+| Fins (4) | Swept, spring-loaded; deploy on exit |
+| Warhead | Cube pack + burster |
+| Avionics | Autopilot for canards |
+| Canards | Small movable surfaces **near nose** |
+| Seeker | **100 mm** IR dome |
+
+**CoG:** **Slightly rear-biased** for stable shoulder carry and launch impulse.
 
 ---
 
-## Related Documents
+## Motor
 
-| Document | Purpose |
-|----------|---------|
-| [05 — Key Design Trades](05-key-design-trades.md) | Rationale |
-| [07 — Limitations and Risks](07-limitations-and-risks.md) | Limits |
+| Parameter | Spec |
+|-----------|------|
+| Type | **Progressive burn** solid grain |
+| Initial phase | **Lower thrust 1–2 seconds** (recoil/backblast control) |
+| Ramp | Increasing thrust for velocity at range |
+| Grain length (notional) | ~260 mm |
+| Propellant mass | ~1.15–1.25 kg |
+| Burn time | ~3.0–3.4 s |
+| Range goal | **1000 m** effective (notional trajectory) |
 
 ---
 
-[← Key Design Trades](05-key-design-trades.md) | [Next: Limitations and Risks →](07-limitations-and-risks.md)
+## Warhead
+
+| Item | Spec |
+|------|------|
+| Fragments | **300 × 7 mm** dense **Ti/steel** alloy cubes, **rough-edged** |
+| Pattern | **Forward cone** — **~10–12 ft** wide at **~20 ft** standoff |
+| Burster | Small; **disperses only** |
+| Kill | Multiple high-velocity cube strikes on rotors, battery, sensors, frame |
+
+---
+
+## Fuze
+
+| Layer | Function |
+|-------|----------|
+| **Proximity (primary)** | Initiate dispersal at **~20 ft** for cone geometry |
+| **Timed (backup)** | Failsafe actuation if proximity does not fire |
+
+Architecture is **locked**; sensor selection and timing tolerance are engineering detail.
+
+---
+
+## Guidance & Control
+
+| Item | Spec |
+|------|------|
+| Seeker | **100 mm** IR; **lock before launch** |
+| Indication | **Audible tone** via launcher when locked |
+| Flight control | **Small movable canards near nose** |
+| Maneuver class | **Low** — trim corrections, not high divert |
+| Employment | Gunner **rough-aims** within seeker FOV |
+
+---
+
+## Operational Flow
+
+| Step | Action |
+|------|--------|
+| 1 | Open breech — pull **spring bolt**, swing open |
+| 2 | **Pop top** off ravioli-can tube |
+| 3 | Load tube into launcher |
+| 4 | Close breech — **auto deadbolt lock** |
+| 5 | Hold **front trigger** → seeker on → **tone** at lock |
+| 6 | Pull **rear trigger** (front held) → launch |
+| 7 | Fins deploy; motor ramps; canards trim |
+| 8 | **~20 ft** — proximity (timed backup) → cube cone |
+| 9 | Open breech — **empty tube drops** — reload |
+
+---
+
+## Kill Mechanism
+
+Rough-edged **Ti/steel cubes** at high closing velocity — structural and component damage to non-survivable UAS. Not a shaped-charge penetrator.
+
+---
+
+[← Key Design Trades](05-key-design-trades.md) | [Next: Limitations →](07-limitations-and-risks.md)

@@ -1,36 +1,25 @@
 # Annex C — Trades Matrix
 
-**Document ID:** TKI-30-66 / ANX-C  
-**Version:** 0.4.0  
+**Document ID:** RADR / ANX-C  
+**Version:** 0.7.0  
 **Status:** Conceptual
 
 See [05 — Key Design Trades](../docs/05-key-design-trades.md).
 
 ---
 
-## Trade Matrix
+## Selected Trades
 
-| Trade | Option A | Option B | Option C | Recommended |
-|-------|----------|----------|----------|-------------|
-| **Philosophy** | Cost-first | Performance | **KISS / lightweight ★** | **KISS / lightweight** |
-| **Payload** | Kinetic rod | HE-frag | **Ti BB flak ★** | **Ti BB flak** |
-| **Guidance** | Beam-riding | Launcher-tracked | **Onboard IR F&F ★** | **Onboard IR F&F** |
-| **Rocket length** | 12 in | **≤ 18 in ★** | > 18 in | **≤ 18 in max** |
-| **Caliber** | 40 mm | **50 mm ★** | 66 mm | **50 mm** |
-| **Dispersal** | Timed | **Proximity IR ★** | Seeker-gated | **Proximity IR (TBD)** |
-| **Launcher** | Disposable | **Reusable breech ★** | — | **Reusable** |
-
----
-
-## Removed from Baseline
-
-| Item | Status |
-|------|--------|
-| Laser beam-riding | Rejected |
-| Launcher tracker guidance | Removed |
-| Pre-fire BIT | Removed |
-| Kinetic rod | Removed |
-| FMCW radar seeker | Not baseline |
+| Trade | Rejected | **Selected** |
+|-------|----------|--------------|
+| Philosophy | Performance-at-any-cost | **KISS / squad-SOF** |
+| Payload | HE rod, omnidirectional frag | **Ti/steel cube forward cone** |
+| Guidance | Beam-riding, launcher track, high OBA | **Onboard IR F&F + nose canards** |
+| Fuze | Seeker-only, single-point timed | **Proximity + timed backup** |
+| Motor | Boost-first neutral burn | **Progressive (low 1–2 s, ramp)** |
+| Launcher | Disposable | **36 in reusable Gustav breech** |
+| Round pack | Bare rocket | **Ravioli-can + pull cap** |
+| Sights | Iron only | **Holographic square (+ thermal study)** |
 
 ---
 
@@ -38,15 +27,30 @@ See [05 — Key Design Trades](../docs/05-key-design-trades.md).
 
 ```mermaid
 flowchart LR
-  Gunner[Gunner] -->|Lock| Seeker[OnboardIR]
-  Launcher[Launcher] -->|Launch| Rocket[GuidedRocket]
-  Seeker -->|Track| UAS[UAS]
-  Rocket -->|Dispersal| Cloud[TiBB_Cloud]
-  Cloud --> UAS
+  Gunner[Gunner_RoughAim] --> Holo[HoloSight]
+  Gunner --> FrontTrig[FrontTrigger]
+  FrontTrig --> Seeker[IRSeeker_100mm]
+  Seeker -->|Tone| Gunner
+  Gunner --> RearTrig[RearTrigger]
+  RearTrig --> Rocket[Rocket_ProgressiveMotor]
+  Rocket --> Canards[NoseCanards]
+  Rocket --> Fuze[ProxPlusTimed]
+  Fuze --> Cone[ForwardCubeCone]
+  Cone --> UAS[UAS]
 ```
 
 ---
 
-## Related Documents
+## Program Exclusions (Historical)
 
-- [06 — System Description](../docs/06-system-description.md)
+The following were explored in early concept phases and **removed**:
+
+- Laser beam-riding  
+- Launcher-tracked guidance  
+- Kinetic penetrator rod  
+- FMCW radar seeker  
+- High off-boresight autopilot  
+
+---
+
+[← 06 — System Description](../docs/06-system-description.md)

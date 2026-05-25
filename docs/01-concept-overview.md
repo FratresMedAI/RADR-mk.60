@@ -1,98 +1,83 @@
 # 01 — Concept Overview
 
-**Document ID:** TKI-30-66 / DOC-01  
-**Version:** 0.4.0  
-**Status:** Conceptual
+**Document ID:** RADR / DOC-01  
+**Version:** 0.7.0  
+**Status:** Conceptual — refined baseline
+
+---
+
+## Core Vision
+
+A lightweight, reusable **60 mm** shoulder-fired rocket system designed for **squad and SOF** use. It fires an **18-inch** rocket with a **Ti/steel cube flak** warhead, **onboard IR fire-and-forget** seeker, and **progressive-burn** motor optimized for **speed-to-target** rather than high off-boresight maneuvering. The system emphasizes **simplicity, reliability, and one-person reload** capability.
 
 ---
 
 ## Purpose
 
-TKI-30-66 (internal codename: **Splash**) is a conceptual shoulder-fired weapon system that gives squad- and SOF-level units a lightweight, terminal-layer defeat capability against small-to-medium unmanned aircraft systems (UAS).
-
-The system fills the gap when higher-echelon counter-UAS assets are saturated, unavailable, jammed, or overkill for the threat: a **guided flak rocket** that is man-portable, relatively cheap per shot, and simple to employ.
+RADR closes the **150–1000 m** gap against small and medium UAS when machine guns fall short and SAM is not worth the call. It is a **specialist** squad weapon — not general issue.
 
 ---
 
-## Problem Statement
+## Core Philosophy
 
-Squad and SOF elements face close-in UAS threats — ISR platforms, FPV attackers, and loitering munitions — without always having vehicle SHORAD, EW, or missile interceptors at hand. Small arms are cheap but ineffective against maneuvering drones; missiles are effective but heavy, expensive, and scarce.
-
-TKI-30-66 proposes a middle path: a **reusable Gustav-like launcher** firing **lightweight IR-guided rockets** with a **titanium BB flak** warhead.
-
----
-
-## Core Concept
-
-### Launcher
-
-A reusable, shoulder-fired, recoilless-style launcher with **flip-open breech** reloading — operationally similar to Carl Gustaf, scaled to the **40–66 mm class** (50 mm nominal baseline). The launcher is the tube and sight; it does **not** house a tracking radar or laser designator.
-
-### Rocket
-
-A lightweight guided rocket, **up to ~457 mm (18 in / 1.5 ft)** overall length, kept as light as practicable (~2.3 kg goal). Components:
-
-- Propulsion with low-to-moderate backblast mitigation
-- **Onboard IR seeker** — fire-and-forget, baby Stinger / Igla style, optimized for drone thermal signatures
-- **Ti BB flak warhead** — disperses a cloud of titanium ball bearings near the target (rocket-delivered flak)
-- Fin stabilization (conventional rocket)
-
-### Guidance
-
-**Onboard fire-and-forget IR homing.** The gunner acquires the target, achieves seeker lock, and fires. The rocket tracks autonomously. **No laser beam-riding.** No separate designator operator.
-
-### Warhead / Kill Mechanism
-
-Near the target, the rocket releases a **dispersed cloud of Ti BBs** intended to strike rotors, motors, wings, or airframe — flak-style defeat rather than a single kinetic penetrator. Defeat is by **coverage and fragment strike**, not rod impact.
-
-### Stabilization
-
-Fin-stabilized rocket flight. See [Annex D — Projectile Stabilization](../annexes/D-projectile-stabilization.md).
+| Principle | Meaning |
+|-----------|---------|
+| **Speed-to-target** | Primary defense; less time for drone evasion. |
+| **Low-maneuver guidance** | Rough aim + lock; **small nose canards** only. |
+| **Not high off-boresight** | No snap-shot “point away and kill” envelope. |
+| **KISS + rugged** | Ravioli-can round; flip breech; dual-trigger; factory-sealed reliability. |
+| **Terminal flak** | **300** rough-edged **Ti/steel cubes** in a **forward cone**; burster disperses only. |
+| **Honest** | 1000 m and Pk are **goals** until live fire proves them. |
 
 ---
 
-## Design Philosophy
+## Locked Configuration
 
-| Principle | Application |
-|-----------|-------------|
-| **KISS** | One rocket SKU; onboard seeker; mechanical dispersal; no external designator |
-| **Lightweight** | Minimum rocket mass; launcher without heavy fire-control module |
-| **Man-portable** | Launcher ~7 kg; 2-man team carries launcher + multiple rockets |
-| **Cheap per shot** | Target ~$200–400/round at volume vs. missiles |
-| **Low backblast** | Safer than full Gustaf class for routine squad use |
-| **Honest capability** | Terminal, close-in; not Stinger replacement; not all-weather |
-
----
-
-## What TKI-30-66 Is
-
-- A terminal **flak rocket** for Group 1–2 UAS at 150–600 m (800 m aspirational under favorable conditions)
-- A squad/SOF organic asset with fire-and-forget employment
-- A complement to layered C-UAS — not a replacement for SHORAD, EW, or Coyote-class interceptors
-
-## What TKI-30-66 Is Not
-
-- A kinetic rod or long-rod penetrator system
-- A laser-designated or beam-riding weapon
-- A full Stinger / Igla equivalent (seeker and warhead are deliberately smaller and simpler)
-- A long-range or all-weather area-defense system
-- A validated, fielded, or procurement-ready system
+| Item | Value |
+|------|--------|
+| Caliber | 60 mm |
+| Rocket | 18 in (457 mm) max; ≤ 3.5 kg |
+| Launcher | 36 in; ≤ 5.5 kg empty |
+| Warhead | 300 × 7 mm Ti/steel rough-edged cubes |
+| Pattern | Forward cone ~10–12 ft @ ~20 ft |
+| Fuze | Proximity primary + timed backup |
+| Seeker | 100 mm IR F&F |
+| Guidance | Small movable canards near nose |
+| Fins | 4 swept spring-loaded at base |
+| Motor | Progressive burn (low 1–2 s, then ramp) |
+| Range goal | 1000 m effective |
+| Backblast | ≤ 10 yards (30 ft) |
+| Tube | Ravioli-can + pull-off cap |
+| Breech | Gustav flip + spring bolt + deadbolt lock |
+| CoG | Slightly rear-biased |
+| Sights | Holographic square reticle; thermal overlay under study |
 
 ---
 
-## Internal Codename
+## Design Heritage
 
-**Splash** is used informally within this project. It is not a program of record designation.
+- **Bazooka** — 36 in tube, dismounted point-and-shoot  
+- **Carl-Gustaf** — flip breech, reload discipline, tube discard after fire  
+- **Stinger / Igla** — IR on the **round** (simplified, drone-tuned)
 
 ---
 
-## Related Documents
+## Operational Flow
 
-| Document | Purpose |
-|----------|---------|
-| [02 — Operational Requirements](02-operational-requirements.md) | KPPs and MOEs |
-| [06 — System Description](06-system-description.md) | Hardware overview |
-| [07 — Limitations and Risks](07-limitations-and-risks.md) | Capability ceiling |
+1. Open breech (pull spring bolt, swing open).  
+2. Pop top off protective tube.  
+3. Load tube into launcher.  
+4. Close breech (auto-locks).  
+5. Hold front trigger → seeker + **lock tone**.  
+6. Pull rear trigger (front held) → launch.  
+7. Open breech → empty tube drops → repeat.
+
+---
+
+## What It Is / Is Not
+
+**Is:** Fast terminal C-UAS flak for squad/SOF · Speed-first · One-person reload  
+**Is not:** Stinger replacement · Kinetic rod · Beam-riding · High-OBA missile · Validated hardware
 
 ---
 
