@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "status": "conceptual",
     "last_updated": "2026-05-24",
-    "notes": "v0.8.0: Full name Recoilless Anti-Drone Rocket; primary threat set (FPV, quads, loiter, glide, Group 1-2); locked specs and operational flow aligned."
+    "notes": "v0.9.0: Engineering annexes F (employment/breech), G (mass/CG), H (motor thrust curve); structured JSON for sequence, breech, mass_budget, motor profile."
   },
   "primary_threats": [
     {
@@ -74,7 +74,8 @@
     "motor": {
       "type": "progressive_burn",
       "initial_phase_s": { "min": 1, "max": 2 },
-      "initial_thrust": "lower",
+      "initial_thrust_n_avg": 700,
+      "peak_thrust_n": 1050,
       "ramp": "increasing_to_terminal_velocity"
     },
     "round_packaging": {
@@ -85,7 +86,25 @@
     "breech": {
       "style": "gustav_flip",
       "bolt": "spring_loaded",
-      "lock": "positive_deadbolt_style"
+      "lock_type": "positive_deadbolt",
+      "components": [
+        "flip_breech_block",
+        "hinge_axis",
+        "spring_return_bolt_handle",
+        "deadbolt_detent_cam",
+        "bore_sealing_face",
+        "rim_electrical_contacts",
+        "pressure_transducer_port",
+        "recoilless_vent_path"
+      ],
+      "states": [
+        "OPEN_EMPTY",
+        "OPEN_LOADED",
+        "CLOSING",
+        "LOCKED_SEATED",
+        "SEEKER_ARMED",
+        "FIRED"
+      ]
     },
     "launcher_controls": {
       "front_trigger": "seeker_activation_and_lock_tone",
@@ -98,14 +117,48 @@
       "status": "locked"
     },
     "operational_flow": [
-      "open_breech",
-      "pop_cap_off_tube",
-      "load_tube",
-      "close_breech",
-      "hold_front_trigger_seeker_tone",
-      "pull_rear_trigger_while_holding_front",
-      "fire",
-      "open_breech_empty_tube_drops_out"
+      {
+        "phase": "CLEAR",
+        "action": "open_breech_eject_spent_tube",
+        "system_state": "BREECH_OPEN",
+        "interlock": "rear_trigger_disabled"
+      },
+      {
+        "phase": "PREP",
+        "action": "pull_off_cap_inspect_round",
+        "system_state": "ROUND_EXPOSED",
+        "interlock": null
+      },
+      {
+        "phase": "LOAD",
+        "action": "insert_tube_close_breech",
+        "system_state": "BREECH_CLOSING",
+        "interlock": null
+      },
+      {
+        "phase": "SEAT",
+        "action": "deadbolt_lock_pressure_contacts_confirm",
+        "system_state": "LOCKED_SEATED",
+        "interlock": "seeker_off_until_seated"
+      },
+      {
+        "phase": "ARM",
+        "action": "hold_front_trigger_wait_lock_tone",
+        "system_state": "SEEKER_LOCKED",
+        "interlock": "rear_blocked_until_tone"
+      },
+      {
+        "phase": "FIRE",
+        "action": "pull_rear_while_holding_front",
+        "system_state": "LAUNCH",
+        "interlock": "front_must_stay_held"
+      },
+      {
+        "phase": "POST",
+        "action": "open_breech_empty_tube_drops",
+        "system_state": "BREECH_OPEN_EMPTY",
+        "interlock": "clear_10yd_rear"
+      }
     ],
     "philosophy": {
       "echelon": "squad_sof_terminal_layer",
@@ -117,6 +170,39 @@
       "rocket_max": 3.5,
       "launcher_empty_max": 5.5,
       "system_one_round_max": 9.0
+    },
+    "mass_budget": {
+      "rocket_nominal_kg": 3.1,
+      "rocket_cg_mm_from_nose": 248,
+      "launcher_nominal_kg": 4.8,
+      "system_loaded_nominal_kg": 7.9,
+      "sections": {
+        "seeker_kg": 0.5,
+        "warhead_kg": 1.05,
+        "avionics_kg": 0.15,
+        "motor_kg": 1.2,
+        "structure_kg": 0.2
+      }
+    },
+    "motor_notional": {
+      "grain_length_mm": 260,
+      "propellant_mass_kg": 1.2,
+      "burn_time_s": 3.4,
+      "total_impulse_ns": { "nominal": 2900, "min": 2800, "max": 3200 },
+      "average_thrust_n": { "min": 850, "max": 1050 },
+      "terminal_velocity_at_1000m_mps": { "min": 330, "max": 370 },
+      "time_of_flight_1000m_s": { "min": 4.5, "max": 5.0 },
+      "motor_thrust_profile": [
+        { "t_s": 0.0, "thrust_n": 0 },
+        { "t_s": 0.5, "thrust_n": 620 },
+        { "t_s": 1.0, "thrust_n": 680 },
+        { "t_s": 1.5, "thrust_n": 700 },
+        { "t_s": 2.0, "thrust_n": 720 },
+        { "t_s": 2.5, "thrust_n": 850 },
+        { "t_s": 3.0, "thrust_n": 1000 },
+        { "t_s": 3.2, "thrust_n": 1050 },
+        { "t_s": 3.4, "thrust_n": 950 }
+      ]
     },
     "range_m": {
       "effective_goal": 1000,

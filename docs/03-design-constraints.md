@@ -1,7 +1,7 @@
 # 03 — Design Constraints
 
 **Document ID:** RADR / DOC-03  
-**Version:** 0.8.0  
+**Version:** 0.9.0  
 **Status:** Conceptual
 
 ---

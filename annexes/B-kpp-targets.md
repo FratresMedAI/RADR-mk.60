@@ -1,7 +1,7 @@
 # Annex B — KPP Targets
 
 **Document ID:** RADR / ANX-B  
-**Version:** 0.8.0  
+**Version:** 0.9.0  
 **Status:** Conceptual
 
 ---

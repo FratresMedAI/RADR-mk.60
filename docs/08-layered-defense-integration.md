@@ -1,7 +1,7 @@
 # 08 — Layered Defense Integration
 
 **Document ID:** RADR / DOC-08  
-**Version:** 0.8.0  
+**Version:** 0.9.0  
 **Status:** Conceptual
 
 ---

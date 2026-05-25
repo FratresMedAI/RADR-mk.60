@@ -5,7 +5,7 @@
 **RADR** is a lightweight, reusable **60 mm** shoulder-fired rocket system designed as a **squad and SOF terminal-layer** weapon. It fires an **18-inch** rocket with a **300 × 7 mm dense alloy cube flak** warhead, **onboard IR fire-and-forget** seeker, and **progressive-burn** motor optimized for **speed-to-target** rather than high off-boresight maneuvering.
 
 **Status:** Phase 0 — Conceptual  
-**Version:** 0.8.0
+**Version:** 0.9.0
 
 ---
 
@@ -62,6 +62,8 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 
 **Carry:** Launcher + one round ≤ **9.0 kg** — one person can reload.
 
+**Detail:** [Annex F — Employment & breech](annexes/F-employment-and-breech.md) · **Diagrams:** [DOC-06](docs/06-system-description.md#diagrams)
+
 ---
 
 ## Comparison Snapshot
@@ -98,7 +100,12 @@ Laser beam-riding · Launcher-tracked guidance · Kinetic penetrator rod · High
 | 07 | [Limitations and Risks](docs/07-limitations-and-risks.md) |
 | 08 | [Layered Defense Integration](docs/08-layered-defense-integration.md) |
 
-Annexes A–E: [`annexes/`](annexes/)
+| Annex | Topic |
+|-------|--------|
+| A–E | [Baseline, KPPs, trades, stabilization, references](annexes/) |
+| **F** | [Employment sequence & breech](annexes/F-employment-and-breech.md) |
+| **G** | [Mass budget & CG](annexes/G-mass-and-center-of-gravity.md) |
+| **H** | [Motor thrust curve](annexes/H-motor-progressive-burn.md) |
 
 ---
 

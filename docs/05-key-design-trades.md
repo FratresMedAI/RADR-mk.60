@@ -1,7 +1,7 @@
 ﻿# 05 — Key Design Trades
 
 **Document ID:** RADR / DOC-05  
-**Version:** 0.8.0  
+**Version:** 0.9.0  
 **Status:** Conceptual
 
 ---
@@ -28,6 +28,18 @@
 ## Speed vs. Agility
 
 RADR deliberately **does not** pursue high off-boresight or aggressive intercept maneuvers. Closure speed and a reliable terminal cone are the kill chain.
+
+---
+
+## Motor: Progressive Burn
+
+| Phase | Thrust (notional) | Purpose |
+|-------|-------------------|---------|
+| 0–2.0 s | ~700 N average | Recoil and 10 yd backblast control |
+| 2.0–3.2 s | 750 → 1050 N ramp | Range closure |
+| 3.2–3.4 s | ~950 N tail | Burnout |
+
+**Total impulse:** ~2900 N·s (design band 2800–3200 N·s). See [Annex H](../annexes/H-motor-progressive-burn.md).
 
 ---
 

@@ -1,7 +1,7 @@
 # 01 — Concept Overview
 
 **Document ID:** RADR / DOC-01  
-**Version:** 0.8.0  
+**Version:** 0.9.0  
 **Status:** Conceptual
 
 ---
@@ -67,6 +67,8 @@ RADR closes the **150–1000 m** engagement band against **close-in UAS** when o
 ## Operational Flow
 
 Open breech → Pop cap off tube → Load tube → Close breech → Hold front trigger for seeker tone → Pull rear trigger while holding front → Fire → Open breech → Empty tube drops out.
+
+**Engineering annexes:** [F — Employment](../annexes/F-employment-and-breech.md) · [G — Mass/CG](../annexes/G-mass-and-center-of-gravity.md) · [H — Motor](../annexes/H-motor-progressive-burn.md)
 
 ---
 

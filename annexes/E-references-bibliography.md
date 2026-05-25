@@ -1,7 +1,7 @@
 ﻿# Annex E — References and Bibliography
 
 **Document ID:** RADR / ANX-E  
-**Version:** 0.8.0  
+**Version:** 0.9.0  
 **Status:** Conceptual
 
 ---

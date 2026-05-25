@@ -1,7 +1,7 @@
 ﻿# 04 — CONOPS / Use Cases
 
 **Document ID:** RADR / DOC-04  
-**Version:** 0.8.0  
+**Version:** 0.9.0  
 **Status:** Conceptual
 
 **Team:** Gunner + ammo bearer. **Single carry:** ≤ 9.0 kg (launcher + one round).
@@ -10,7 +10,9 @@
 
 ## Standard Engagement
 
-Open breech → Pop cap → Load tube → Close breech → Front trigger (lock tone) → Rear trigger (front held) → Fire → Open breech → Tube drops → Reload.
+Summary: open breech → pop cap → load → close → front trigger (tone) → rear trigger → fire → open breech → tube drops.
+
+**Authoritative sequence** (interlocks, abort rules, breech states): [Annex F](../annexes/F-employment-and-breech.md).
 
 ---
 

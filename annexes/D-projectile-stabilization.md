@@ -1,7 +1,7 @@
 # Annex D — Projectile Stabilization & Ballistics
 
 **Document ID:** RADR / ANX-D  
-**Version:** 0.8.0  
+**Version:** 0.9.0  
 **Status:** Conceptual
 
 ---
@@ -11,7 +11,7 @@
 - 60 mm fin-stabilized guided rocket  
 - **4 spring-loaded swept fins** at base — deploy on exit  
 - **Small nose canards** — low-maneuver trim  
-- **CoG slightly rear-biased**  
+- **CoG slightly rear-biased** — notional **~248 mm from nose** ([Annex G](G-mass-and-center-of-gravity.md))  
 - Smoothbore launch (baseline)
 
 ---
