@@ -1,7 +1,7 @@
 # Annex C — Trades Matrix
 
 **Document ID:** RADR / ANX-C  
-**Version:** 0.9.0  
+**Version:** 1.0.0  
 **Status:** Conceptual
 
 ---

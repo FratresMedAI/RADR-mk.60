@@ -2,10 +2,10 @@
   "metadata": {
     "project": "RADR — Recoilless Anti-Drone Rocket",
     "acronym": "RADR",
-    "version": "0.9.0",
+    "version": "1.0.0",
     "status": "conceptual",
-    "last_updated": "2026-05-24",
-    "notes": "v0.9.0: Engineering annexes F (employment/breech), G (mass/CG), H (motor thrust curve); structured JSON for sequence, breech, mass_budget, motor profile."
+    "last_updated": "2026-05-25",
+    "notes": "v1.0.0: Refined vision — rocket retention stop, launcher concept (M1 Bazooka layout), safety interlocks, selected concept art v5."
   },
   "primary_threats": [
     {
@@ -103,8 +103,30 @@
         "CLOSING",
         "LOCKED_SEATED",
         "SEEKER_ARMED",
+        "SEEKER_LOCKED",
         "FIRED"
       ]
+    },
+    "rocket_retention_stop": {
+      "type": "mechanical_bore_stop",
+      "default": "engaged",
+      "disengage_requires": [
+        "breech_fully_closed_and_locked",
+        "front_trigger_held",
+        "seeker_ready_tone"
+      ],
+      "reengage_on": "front_trigger_released",
+      "purpose": "prevent_rocket_forward_slide_when_slung_or_carried"
+    },
+    "launcher_ergonomics": {
+      "heritage": "modernized_m1_bazooka",
+      "shoulder_stock": false,
+      "forward_grip": "vertical_foregrip_aft_of_muzzle_before_sight",
+      "rear_grip": "pistol_grip_with_fire_trigger",
+      "padding": "rear_only_pistol_grip_to_breech",
+      "sight": "holographic_on_short_rail",
+      "finish": "matte_tactical_camo",
+      "concept_art": "visuals/launcher/output/radr-bazooka-side-v5.png"
     },
     "launcher_controls": {
       "front_trigger": "seeker_activation_and_lock_tone",
@@ -144,8 +166,14 @@
       {
         "phase": "ARM",
         "action": "hold_front_trigger_wait_lock_tone",
+        "system_state": "SEEKER_ARMED",
+        "interlock": "rear_blocked_until_tone_retention_engaged"
+      },
+      {
+        "phase": "READY",
+        "action": "lock_tone_retention_stop_disengages",
         "system_state": "SEEKER_LOCKED",
-        "interlock": "rear_blocked_until_tone"
+        "interlock": "rear_enabled_retention_disengaged"
       },
       {
         "phase": "FIRE",
@@ -235,6 +263,8 @@
       "backblast_danger_zone_ft": 30,
       "fuze": "proximity_primary_timed_backup",
       "breech": "gustav_flip_spring_bolt_positive_lock",
+      "rocket_retention_stop": true,
+      "launcher_layout": "modernized_m1_bazooka_no_shoulder_stock",
       "round_packaging": "ravioli_can_pull_off_cap",
       "primary_role": "squad_sof_terminal_c_uas",
       "typical_targets": [

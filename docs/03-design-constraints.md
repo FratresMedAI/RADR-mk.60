@@ -1,7 +1,7 @@
 # 03 — Design Constraints
 
 **Document ID:** RADR / DOC-03  
-**Version:** 0.9.0  
+**Version:** 1.0.0  
 **Status:** Conceptual
 
 ---
@@ -50,6 +50,8 @@
 | Round | **Ravioli-can** tube; **pull-off cap** removed by soldier on load |
 | Breech | **Gustav-style flip**; spring-loaded bolt; **positive lock** |
 | Triggers | Front = seeker + tone; rear = fire (front held) |
+| Retention stop | Mechanical bore stop; release only when breech closed + front held + ready tone |
+| Ergonomics | M1 Bazooka layout; foregrip forward of sight; pistol grip aft; **no shoulder stock** |
 | Backblast | **≤ 10 yards (30 ft)** rear |
 | Seating confirmation | Pressure + electrical contacts |
 | Post-fire | Empty tube drops on breech open |

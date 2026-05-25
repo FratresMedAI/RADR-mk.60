@@ -1,7 +1,7 @@
 ﻿# 04 — CONOPS / Use Cases
 
 **Document ID:** RADR / DOC-04  
-**Version:** 0.9.0  
+**Version:** 1.0.0  
 **Status:** Conceptual
 
 **Team:** Gunner + ammo bearer. **Single carry:** ≤ 9.0 kg (launcher + one round).
@@ -61,6 +61,7 @@ Summary: open breech → pop cap → load → close → front trigger (tone) →
 - Rough aim required — not high off-boresight  
 - No fire without **lock tone**  
 - Hold **front trigger** through rear trigger pull  
+- Retention stop keeps round seated when slung — only releases at lock tone  
 - Clear **10 yards (30 ft)** rear arc every shot  
 - Specialist teams only  
 

@@ -1,7 +1,7 @@
 # 07 — Limitations and Risks
 
 **Document ID:** RADR / DOC-07  
-**Version:** 0.9.0  
+**Version:** 1.0.0  
 **Status:** Conceptual
 
 ---

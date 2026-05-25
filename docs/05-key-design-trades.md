@@ -1,7 +1,7 @@
 ﻿# 05 — Key Design Trades
 
 **Document ID:** RADR / DOC-05  
-**Version:** 0.9.0  
+**Version:** 1.0.0  
 **Status:** Conceptual
 
 ---
@@ -19,9 +19,10 @@
 | Fuze | **Proximity + timed backup** | Reliable ~20 ft actuation |
 | Motor | **Progressive burn** | Recoil/backblast then range |
 | Caliber | **60 mm** | Payload + motor + seeker balance |
-| Launcher | **36 in reusable Gustav breech** | Reload + 10 yd backblast clearance |
+| Launcher | **36 in M1 Bazooka layout + Gustav breech** | Familiar silhouette; reload; 10 yd backblast |
 | Round | **Ravioli-can + pull cap** | Rugged field handling |
 | Controls | **Dual-trigger + tone** | Safe seeker/arm sequence |
+| Carry safety | **Rocket retention stop** | Mechanical anti-slide when slung; releases only when armed |
 
 ---
 

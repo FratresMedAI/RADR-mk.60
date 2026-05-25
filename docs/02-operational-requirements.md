@@ -1,7 +1,7 @@
 # 02 — Operational Requirements
 
 **Document ID:** RADR / DOC-02  
-**Version:** 0.9.0  
+**Version:** 1.0.0  
 **Status:** Conceptual
 
 Annex B: [KPP Targets](../annexes/B-kpp-targets.md)
@@ -53,8 +53,38 @@ The system shall be designed to engage:
 | Breech | Gustav flip + positive lock | Locked |
 | Controls | Dual-trigger + lock tone | Locked |
 | CoG | Rear-biased | Locked |
+| Rocket retention stop | Engaged when not armed; releases per interlock table | Locked |
 | One-person reload | Required | — |
 | Cost per rocket | ≤ $500 | ≤ $300 |
+
+---
+
+## Safety Requirements
+
+| ID | Requirement | Verification (concept) |
+|----|-------------|--------------------------|
+| SAF-01 | Rocket shall not slide forward in bore during carry/sling unless retention stop is intentionally released | Mechanical stop + logic |
+| SAF-02 | Retention stop shall disengage only when breech fully closed **and** front trigger held **and** seeker ready tone active | Interlock table — Annex F |
+| SAF-03 | Retention stop shall re-engage when front trigger is released | Annex F |
+| SAF-04 | Rear trigger shall not initiate launch without lock tone | Annex F |
+| SAF-05 | Seeker shall not arm until tube seated (pressure + contacts) | Annex F |
+| SAF-06 | Backblast danger zone ≤ 10 yd (30 ft) — cleared before fire and breech open | Locked |
+
+---
+
+## Employment Sequence (Required)
+
+| Step | Gunner action | System response |
+|------|---------------|-----------------|
+| 1 | Open breech (pull spring bolt, swing open) | Rear trigger disabled; retention stop **engaged** |
+| 2 | Remove pull-off cap from protective tube | Round exposed outside bore |
+| 3 | Load tube into launcher | — |
+| 4 | Close breech | Deadbolt locks; seat confirm |
+| 5 | Hold front trigger | Seeker on; tone at lock; retention stop **disengages** |
+| 6 | Pull rear trigger (front held) | Launch |
+| 7 | Open breech after safe interval | Empty tube drops |
+
+**Authoritative interlocks:** [Annex F](../annexes/F-employment-and-breech.md)
 
 ---
 

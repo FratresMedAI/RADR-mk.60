@@ -1,7 +1,7 @@
 # Annex F — Employment Sequence and Breech Mechanism
 
 **Document ID:** RADR / ANX-F  
-**Version:** 0.9.0  
+**Version:** 1.0.0  
 **Status:** Conceptual — locked baseline
 
 Traceability: [06 — System Description](../docs/06-system-description.md) · [04 — CONOPS](../docs/04-conops-use-cases.md)
@@ -20,8 +20,8 @@ This annex is the **authoritative** employment sequence for RADR. Summary flows 
 | **PREP** | Pull off ravioli-can cap; visual check of seeker dome | Round exposed, **out of bore** | — |
 | **LOAD** | Insert protective tube into bore; swing breech closed | `BREECH_CLOSING` | — |
 | **SEAT** | Breech deadbolt locks; wait for seat confirm | `LOCKED_SEATED` | Seeker **off** until seated |
-| **ARM** | Hold front trigger; rough aim; wait for lock tone | `SEEKER_LOCKED` | Rear trigger **blocked** until tone |
-| **FIRE** | Pull rear trigger while **holding front** | Launch / motor ignition | Front must remain held through ignition |
+| **ARM** | Hold front trigger; rough aim; wait for lock tone | `SEEKER_LOCKED` | Rear trigger **blocked** until tone; retention stop **disengages** with tone |
+| **FIRE** | Pull rear trigger while **holding front** | Launch / motor ignition | Front must remain held through ignition; stop stays disengaged while front held |
 | **POST** | Open breech after safe interval; tube drops | `BREECH_OPEN_EMPTY` | Clear **10 yd (30 ft)** rear before re-open |
 
 ### Step-by-Step Detail
@@ -34,30 +34,48 @@ This annex is the **authoritative** employment sequence for RADR. Summary flows 
 | 4 | Slide tube into bore until fully home | Light detent feel | Slam tube; skip alignment |
 | 5 | Swing breech closed; release bolt handle | **Deadbolt snap** — positive lock | Close without full insert |
 | 6 | Wait for seat confirm (pressure + contacts) | Seat indicator / logic OK | Arm seeker if not seated |
-| 7 | Hold **front trigger**; point roughly at threat | Seeker cooling; search | Fire rear without tone |
-| 8 | Maintain aim until **audible lock tone** | Steady tone = lock | Snap-shot off-boresight |
-| 9 | While holding front, pull **rear trigger** | Launch + backblast | Release front during ignition |
+| 7 | Hold **front trigger**; point roughly at threat | Seeker cooling; search; retention stop **still engaged** until tone | Fire rear without tone |
+| 8 | Maintain aim until **audible lock tone** | Steady tone = lock; retention stop **disengages** | Snap-shot off-boresight |
+| 9 | While holding front, pull **rear trigger** | Launch + backblast | Release front during ignition (stop re-engages) |
 | 10 | Keep position until motor clears tube | Recoilless vent rear | Re-open breech immediately |
 | 11 | Open breech; let empty tube fall | Tube drops free | Reach into bore without clear rear |
 
 ### Interlocks (Logic Baseline)
 
-| Condition | Front trigger | Rear trigger | Seeker |
-|-----------|---------------|--------------|--------|
-| Breech open | Disabled | Disabled | Off |
-| Breech closed, not seated | Disabled | Disabled | Off |
-| Seated, front not held | Enabled (seeker) | **Blocked** | Standby / search |
-| Seated, front held, no lock | Seeker active | **Blocked** | Acquiring |
-| Seated, front held, lock tone | Held | **Enabled** | Locked |
-| After fire | Disabled until CLEAR | Disabled | Off |
+| Condition | Front trigger | Rear trigger | Seeker | Retention stop |
+|-----------|---------------|--------------|--------|----------------|
+| Breech open | Disabled | Disabled | Off | **Engaged** |
+| Breech closed, not seated | Disabled | Disabled | Off | **Engaged** |
+| Seated, front not held | Enabled (seeker) | **Blocked** | Standby | **Engaged** |
+| Seated, front held, no lock | Seeker active | **Blocked** | Acquiring | **Engaged** |
+| Seated, front held, lock tone | Held | **Enabled** | Locked | **Disengaged** |
+| Front released (any time) | — | **Blocked** | Off / standby | **Re-engages** |
+| After fire | Disabled until CLEAR | Disabled | Off | **Engaged** |
+
+### Rocket Retention Stop (Mechanical)
+
+**Purpose:** Prevent the loaded rocket (in protective tube) from sliding **forward** in the bore during **sling carry**, movement, or bump — a **carry-safe** default independent of electronics.
+
+**Mechanism (conceptual):** A spring-biased **bore stop** (finger, cam, or collet segment) bears on the tube rim or rocket shoulder until deliberately released.
+
+**Release logic (all required):**
+
+1. Breech **fully closed** and deadbolt **locked** (`LOCKED_SEATED`).  
+2. Gunner **holding front trigger**.  
+3. Seeker reporting **ready** (audible lock tone).
+
+**Re-engage:** Any **release of front trigger** — stop returns before rear trigger can matter.
+
+**Note:** Opening breech mechanically clears the bore path; stop state resets to engaged when breech opens.
 
 ### Abort and Safety Rules
 
 - **No rear trigger** without lock tone — ever.  
 - **No seeker activation** until seating confirmed.  
+- **Retention stop engaged** unless breech closed + front held + ready tone.  
 - **Rough aim** required — weapon is not high off-boresight.  
 - **10 yards (30 ft)** minimum cleared zone to rear before every shot and before breech re-open after fire.  
-- If lock tone fails: release front trigger, re-aim or change position; do not override with rear trigger.
+- If lock tone fails: release front trigger (stop re-engages), re-aim or change position; do not override with rear trigger.
 
 ### Notional Timing (Trained Gunner)
 
@@ -88,6 +106,7 @@ Gustav **heritage** flip breech with RADR-specific **spring bolt** and **positiv
 | **Rim electrical contacts** | Seeker power and signal when tube seated |
 | **Pressure transducer port** | Confirms tube seated / bore pressurized on closure |
 | **Recoilless vent path** | Directs blast rearward per 10 yd danger zone |
+| **Rocket retention stop** | Bore finger/cam; spring-default engaged |
 
 ### Breech State Machine
 
@@ -99,7 +118,8 @@ stateDiagram-v2
   OPEN_LOADED --> CLOSING: Swing closed
   CLOSING --> LOCKED_SEATED: Deadbolt plus seat OK
   LOCKED_SEATED --> SEEKER_ARMED: Front trigger
-  SEEKER_ARMED --> FIRED: Rear trigger
+  SEEKER_ARMED --> SEEKER_LOCKED: Lock tone stop out
+  SEEKER_LOCKED --> FIRED: Rear trigger
   FIRED --> OPEN_EMPTY: Open breech tube drops
 ```
 
@@ -109,7 +129,8 @@ stateDiagram-v2
 | `OPEN_LOADED` | Tube in bore; breech still open | → `CLOSING` on swing shut |
 | `CLOSING` | Breech swinging; bolt not yet locked | → `LOCKED_SEATED` on deadbolt + sensors |
 | `LOCKED_SEATED` | Ready for seeker; rear blocked | → `SEEKER_ARMED` on front trigger |
-| `SEEKER_ARMED` | Seeker on; awaiting lock tone | → `FIRED` on valid rear pull |
+| `SEEKER_ARMED` | Seeker on; awaiting lock tone; stop engaged | → `SEEKER_LOCKED` on tone |
+| `SEEKER_LOCKED` | Lock tone; retention stop disengaged | → `FIRED` on valid rear pull |
 | `FIRED` | Post-launch; venting | → `OPEN_EMPTY` after safe open |
 
 ### Operator Mechanical Sequence
@@ -143,6 +164,7 @@ sequenceDiagram
   B->>F: SEATED confirm
   G->>S: Hold front trigger
   S->>G: Lock tone
+  S->>F: Retention stop disengage
   G->>F: Pull rear front held
   F->>G: Launch
   G->>B: Open breech

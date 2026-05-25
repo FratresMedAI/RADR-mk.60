@@ -1,7 +1,7 @@
 # Annex G — Mass Budget and Center of Gravity
 
 **Document ID:** RADR / ANX-G  
-**Version:** 0.9.0  
+**Version:** 1.0.0  
 **Status:** Conceptual — notional mass properties
 
 *All values are engineering estimates — not measured on hardware.*
@@ -65,17 +65,17 @@ x_{cg} = \frac{\sum m_i \cdot x_i}{\sum m_i}
 | Main tube (60 mm bore, 36 in) | 2.40 | Aluminum / composite mix |
 | Breech block + hinge + deadbolt | 0.90 | Gustav-class steel |
 | Triggers, contacts, pressure sensor | 0.30 | Grip electronics |
-| Shoulder pad, grips, sight rail | 1.00 | Ergonomics |
+| Grips, rear pad, sight rail, retention stop | 1.00 | Foregrip + pistol grip; pad grip→breech; no shoulder stock |
 | Misc hardware (slings, pins) | 0.20 | — |
 | **Nominal total** | **4.80** | — |
 
 ### Launcher CG (Notional)
 
-Reference point: **shoulder pad** on tube.
+Reference point: **rear pistol grip** on tube.
 
 | Estimate | Value | Notes |
 |----------|-------|-------|
-| CG aft of shoulder pad | ~550 mm | ~60% of OAL aft along tube |
+| CG aft of pistol grip | ~550 mm | ~60% of OAL aft along tube |
 | Effect | Rear-biased carry | Balances with loaded round |
 
 *Launcher CG with round loaded shifts forward — system CG addressed below.*
@@ -93,7 +93,7 @@ Reference point: **shoulder pad** on tube.
 
 ### Loaded System CG (Rough)
 
-Combining launcher (4.8 kg, CG ~550 mm from shoulder) and round (3.1 kg, CG ~248 mm from nose when inserted):
+Combining launcher (4.8 kg, CG ~550 mm from pistol grip) and round (3.1 kg, CG ~248 mm from nose when inserted):
 
 - Round inserts **forward in bore** — shifts combined CG **forward** vs. empty launcher but remains **manageable** for one-person shoulder carry.  
 - Qualitative result: **slightly rear-biased empty**, **more balanced loaded** — matches locked CoG requirement.

@@ -1,7 +1,7 @@
 # 06 — System Description
 
 **Document ID:** RADR / DOC-06  
-**Version:** 0.9.0  
+**Version:** 1.0.0  
 **Status:** Conceptual
 
 Engineering detail: [Annex F](../annexes/F-employment-and-breech.md) · [Annex G](../annexes/G-mass-and-center-of-gravity.md) · [Annex H](../annexes/H-motor-progressive-burn.md)
@@ -12,7 +12,7 @@ Engineering detail: [Annex F](../annexes/F-employment-and-breech.md) · [Annex G
 
 **RADR** comprises:
 
-1. **Launcher** — 36 in reusable recoilless tube (≤ 5.5 kg empty), Gustav flip breech with spring bolt and positive lock, dual-trigger grips.  
+1. **Launcher** — 36 in reusable recoilless tube (≤ 5.5 kg empty), modernized M1 Bazooka ergonomics, Gustav flip breech, dual-trigger grips, **rocket retention stop**, no shoulder stock.  
 2. **Rocket** — 60 mm × 18 in round (≤ 3.5 kg) in ravioli-can protective tube: IR seeker, progressive motor, dense alloy cube flak warhead.
 
 ```mermaid
@@ -20,6 +20,7 @@ flowchart LR
   subgraph L [Launcher]
     B[GustavBreech_Lock]
     T[DualTrigger_Tone]
+    R[RetentionStop]
   end
   subgraph R [Rocket]
     S[IRSeeker_100mm]
@@ -84,6 +85,7 @@ sequenceDiagram
   B->>FL: Close deadbolt SEAT
   G->>S: Front trigger ARM
   S->>G: Lock tone
+  Note over FL: Retention stop disengaged
   G->>FL: Rear trigger FIRE
   G->>B: Open breech POST
   B-->>G: Empty tube drops
@@ -115,17 +117,39 @@ flowchart LR
 
 ## Launcher
 
+![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-side-v5.png)
+
 | Parameter | Spec |
 |-----------|------|
 | Length | 36 in (914 mm) |
 | Mass (empty) | ≤ 5.5 kg (nominal **4.8 kg** — [Annex G](../annexes/G-mass-and-center-of-gravity.md)) |
 | Bore | 60 mm smoothbore (baseline) |
+| Layout | Modernized **M1 Bazooka** — long slim tube; **no shoulder stock** |
+| Grips | Forward vertical foregrip (between muzzle and sight); rear pistol grip |
+| Padding | Rear section only (pistol grip → breech) |
+| Sight | Short rail + **modern holographic** sight |
+| Finish | Matte tactical camo (non-reflective) |
 | Round | Ravioli-can tube; soldier removes **pull-off cap** before load |
 | Seating | Pressure sensor + electrical contacts |
 | Triggers | **Front:** seeker + **audible lock tone** · **Rear:** fire (front held) |
+| **Retention stop** | Mechanical bore stop — see below |
 | CoG | Slightly **rear-biased** (~248 mm rocket CG — Annex G) |
 | Backblast | ≤ **10 yards (30 ft)** rear |
 | Tracker | None |
+
+### Rocket Retention Stop
+
+A **mechanical stop** inside the bore physically prevents the rocket (in its protective tube) from sliding **forward** when the launcher is **slung or carried**.
+
+| State | Retention stop |
+|-------|----------------|
+| Breech open / not seated | **Engaged** |
+| Breech closed, front trigger not held | **Engaged** |
+| Breech closed, front held, no ready tone | **Engaged** (seeker may be acquiring) |
+| Breech closed, front held, **ready tone** | **Disengaged** — rocket may move forward on launch |
+| Front trigger released | **Re-engages** immediately |
+
+This is independent of the rear trigger and provides a **carry-safe** default.
 
 ### Breech (Summary)
 
@@ -195,7 +219,7 @@ Detail and CG: [Annex G](../annexes/G-mass-and-center-of-gravity.md).
 | 2 | Pop cap off tube |
 | 3 | Load tube |
 | 4 | Close breech — deadbolt locks, **SEATED** |
-| 5 | Hold front trigger → **lock tone** |
+| 5 | Hold front trigger → **lock tone** (retention stop **releases**) |
 | 6 | Pull rear trigger (front held) → fire |
 | 7 | Open breech → empty tube drops out |
 

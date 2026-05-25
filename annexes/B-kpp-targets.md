@@ -1,7 +1,7 @@
 # Annex B — KPP Targets
 
 **Document ID:** RADR / ANX-B  
-**Version:** 0.9.0  
+**Version:** 1.0.0  
 **Status:** Conceptual
 
 ---
@@ -30,6 +30,7 @@
 | KPP-06 | Fuze | Proximity + timed backup | Locked |
 | KPP-07 | System mass (L+1 round) | ≤ 9.0 kg | 9.0 kg |
 | KPP-08 | One-person reload | Required | — |
+| KPP-09 | Rocket retention stop | Engaged unless arm interlock met | Locked |
 
 ---
 

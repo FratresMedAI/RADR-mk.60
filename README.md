@@ -5,15 +5,21 @@
 **RADR** is a lightweight, reusable **60 mm** shoulder-fired rocket system designed as a **squad and SOF terminal-layer** weapon. It fires an **18-inch** rocket with a **300 × 7 mm dense alloy cube flak** warhead, **onboard IR fire-and-forget** seeker, and **progressive-burn** motor optimized for **speed-to-target** rather than high off-boresight maneuvering.
 
 **Status:** Phase 0 — Conceptual  
-**Version:** 0.9.0
+**Version:** 1.0.0
+
+![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-side-v5.png)
 
 ---
 
 ## Core Vision
 
-RADR gives dismounted teams a **fast, reliable, reloadable** answer to close-in UAS threats when machine guns are short and SAM is too heavy to allocate. The gunner **rough-aims**, the seeker **locks** (audible tone), and the rocket **closes quickly** with **small nose-canard corrections** only. At **~20 ft**, **proximity fuze** actuation (with **timed backup**) releases a **forward cone** of **300 rough-edged alloy cubes**. The burster **disperses** — the **cubes kill**.
+RADR is a **lightweight, reusable** **60 mm** shoulder-fired **recoilless** rocket system for **squad and SOF** as a **terminal-layer counter-UAS** weapon. It emphasizes **speed-to-target**, **simplicity**, **one-person reload**, and **multiple layers of safety**.
+
+Dismounted teams get a **fast, reliable, reloadable** answer when machine guns are short and SAM is too heavy to allocate. The gunner **rough-aims**, the seeker **locks** (audible tone), and the rocket **closes quickly** with **small nose-canard corrections** only. At **~20 ft**, **proximity fuze** actuation (with **timed backup**) releases a **forward cone** of **300 rough-edged alloy cubes**. The burster **disperses** — the **cubes kill**.
 
 **Philosophy:** Speed is the primary defense · KISS + rugged · One-person reload · Honest capability ceiling.
+
+**Launcher look:** Modernized **M1 Bazooka** proportions — long slim tube, **matte camo**, **compact Gustav flip breech**, **dual triggers**, **no shoulder stock**; rear **padding** from pistol grip to breech only. See [visuals](visuals/README.md).
 
 ---
 
@@ -53,14 +59,33 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 | Breech | Gustav-style flip; spring bolt + positive lock | Locked |
 | Controls | Front = seeker + tone; rear = fire (front held) | Locked |
 | CoG | Slightly rear-biased | Locked |
+| **Rocket retention stop** | Mechanical bore stop; disengages only when breech closed + front held + ready tone | Locked |
+
+---
+
+## Safety (Layers)
+
+| Layer | Function |
+|-------|----------|
+| **Rocket retention stop** | Blocks rocket from sliding forward in bore when slung or carried; **releases** only when breech is **fully closed**, gunner **holds front trigger**, and seeker gives **ready tone**; **re-engages** if front trigger is released |
+| **Breech deadbolt** | Positive mechanical lock when closed — no seeker or retention release until seated |
+| **Dual-trigger interlock** | Rear fire blocked until lock tone; front must stay held through ignition |
+| **No override** | No rear fire without tone; no seeker until tube seated |
+| **Backblast discipline** | ≤ **10 yd (30 ft)** cleared to rear before every shot and before breech re-open |
 
 ---
 
 ## Operational Flow
 
-**Open breech** → **Pop cap off tube** → **Load tube** → **Close breech** → **Hold front trigger** (seeker tone at lock) → **Pull rear trigger** while holding front → **Fire** → **Open breech** → **Empty tube drops out**.
+1. **Open breech** (pull spring bolt, swing open)  
+2. **Remove cap** from protective tube  
+3. **Load tube** into launcher  
+4. **Close breech** — auto-locks (deadbolt)  
+5. **Hold front trigger** → seeker activates + **lock tone** (retention stop **disengages**)  
+6. **Pull rear trigger** while holding front → **fire**  
+7. **Open breech** → empty protective tube drops out  
 
-**Carry:** Launcher + one round ≤ **9.0 kg** — one person can reload.
+**Carry:** Launcher + one round ≤ **9.0 kg** — one person can reload. Retention stop **engaged** whenever front trigger is not held (safe carry/sling).
 
 **Detail:** [Annex F — Employment & breech](annexes/F-employment-and-breech.md) · **Diagrams:** [DOC-06](docs/06-system-description.md#diagrams)
 
@@ -114,7 +139,7 @@ Laser beam-riding · Launcher-tracked guidance · Kinetic penetrator rod · High
 - Live-fire Pk at 1000 m by threat class (hover vs. crossing vs. glide)  
 - Progressive grain vs. measured backblast inside 10 yd zone  
 - Cube alloy finalization (dense Ti/steel baseline)  
-- Sight configuration (if added beyond iron/holo study)  
+- Retention stop mechanism detail (spring/cam vs. solenoid assist) — function locked  
 
 ---
 

@@ -1,7 +1,7 @@
 ﻿# Annex E — References and Bibliography
 
 **Document ID:** RADR / ANX-E  
-**Version:** 0.9.0  
+**Version:** 1.0.0  
 **Status:** Conceptual
 
 ---
@@ -30,7 +30,7 @@
 
 ## Superseded Concepts
 
-Early program drafts included **laser beam-riding**, **launcher tracking**, and **kinetic rod** payloads. None are part of the **RADR v0.8** baseline.
+Early program drafts included **laser beam-riding**, **launcher tracking**, and **kinetic rod** payloads. None are part of the **RADR v1.0** baseline.
 
 ---
 
