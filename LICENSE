@@ -2,6 +2,8 @@ MIT License
 
 Copyright (c) 2026 FratresMedAI
 
+SPDX-License-Identifier: MIT
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -22,6 +24,20 @@ SOFTWARE.
 
 ---
 
-**Program notice:** RADR documentation describes a Phase 0 conceptual weapon
-system. Content is notional engineering study only — not authorization for
-procurement, manufacture, or use. Concept art is illustrative.
+## RADR program notice
+
+This repository contains the **RADR (Recoilless Anti-Drone Rocket)** open
+concept — documentation, structured data, and notional concept art for a
+**Phase 0** mid-range counter-UAS engineering study.
+
+- All specifications, performance figures, mass budgets, and mechanical
+  descriptions are **notional** unless and until validated by test.
+- Content is **not** authorization to procure, manufacture, export, field, or
+  use any weapon system.
+- Concept art and diagrams are **illustrative** design references, not build
+  drawings or technical data packages.
+- Third-party names (e.g. Evolution Space propellant reference) are cited for
+  trade study context only; no endorsement is implied.
+
+For questions about use of this material outside the MIT terms above, contact
+the copyright holder.

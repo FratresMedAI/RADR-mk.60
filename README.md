@@ -155,6 +155,4 @@ Laser beam-riding · Launcher-tracked guidance · Kinetic penetrator rod · High
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Concept art and program content remain **notional**; see program notice in LICENSE.
-
-Conceptual engineering study only. Performance figures are **notional** until tested. Not authorization for procurement or use.
+MIT — see [LICENSE](LICENSE) (includes RADR program notice). All specs and art are **notional**; not authorization to procure, manufacture, or use any weapon system.
