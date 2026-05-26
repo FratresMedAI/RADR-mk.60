@@ -49,7 +49,7 @@ The system shall be designed to engage:
 | Motor | Evolution Space propellant; **mildly progressive** burn (**750–850 N** first **1–2 s**, ramp to **1050–1150 N**); **2950–3050 N·s**; **~3.3 s** | Locked |
 | Range | ≥ 800 m | **1000 m** effective |
 | Backblast | ≤ 10 yd (30 ft) | Locked |
-| Tube | **Alloy** protective tube; pull-off cap | Locked |
+| Tube | **Alloy** protective tube; **pop-top** + **breech screw cap** | Locked |
 | Breech | Gustav flip + positive lock | Locked |
 | Controls | Dual-trigger + lock tone; **front** = seeker/tone, **rear** = fire | Locked |
 | Sight | **Digital cam sight**; **smooth 1×–20×**; **+ / −** on foregrip; fold-out display | Locked |
@@ -79,7 +79,7 @@ The system shall be designed to engage:
 | Step | Gunner action | System response |
 |------|---------------|-----------------|
 | 1 | Open breech (pull spring bolt, swing open) | Rear trigger disabled; retention stop **engaged** |
-| 2 | Remove pull-off cap from protective tube | Round exposed outside bore |
+| 2 | Pop top (PULL); unscrew bottom screw cap; inspect round | Round exposed in tube, outside bore |
 | 3 | Load tube into launcher | — |
 | 4 | Close breech | Deadbolt locks; seat confirm |
 | 5 | Hold front trigger | Seeker on; tone at lock; retention stop **disengages** |

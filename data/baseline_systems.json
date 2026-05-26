@@ -89,8 +89,20 @@
     "round_packaging": {
       "type": "alloy_protective_tube",
       "description": "robust_sealed_shipping_and_launch_container",
-      "cap": "manual_pull_off",
-      "removed_by": "soldier_during_loading"
+      "top_closure": {
+        "type": "pull_tab_pop_top",
+        "label": "PULL",
+        "tools_required": false
+      },
+      "breech_end_closure": {
+        "type": "hand_screw_cap",
+        "tools_required": false,
+        "purpose": "expose_round_for_inspection"
+      },
+      "prep_sequence": ["pop_top_pull_tab", "unscrew_bottom_screw_cap", "inspect_seeker_and_round"],
+      "side_view_convention": "horizontal_left_is_top_right_is_breech_screw_cap",
+      "concept_art": "visuals/rocket/output/radr-container-authoritative.png",
+      "removed_by": "soldier_during_loading_prep"
     },
     "breech": {
       "style": "gustav_flip",
@@ -150,8 +162,8 @@
       {
         "phase": 2,
         "name": "PREP",
-        "action": "Remove pull-off cap; inspect seeker dome",
-        "feedback": "Cap separates cleanly",
+        "action": "Pop top pull-tab; unscrew bottom screw cap; inspect seeker dome and round",
+        "feedback": "Pop top clean; screw cap hand-loosen; no tools",
         "interlock": null
       },
       {
@@ -300,7 +312,7 @@
       },
       {
         "phase": "PREP",
-        "action": "pull_off_cap_inspect_round",
+        "action": "pop_top_unscrew_bottom_inspect_round",
         "system_state": "ROUND_EXPOSED",
         "interlock": null
       },
@@ -492,7 +504,7 @@
       "breech": "gustav_flip_spring_bolt_positive_lock",
       "rocket_retention_stop": true,
       "launcher_layout": "modernized_m1_bazooka_no_shoulder_stock",
-      "round_packaging": "alloy_tube_pull_off_cap",
+      "round_packaging": "alloy_tube_pop_top_and_breech_screw_cap",
       "primary_role": "squad_sof_mid_range_drone_destroyer",
       "typical_targets": [
         "fpv_kamikaze_drone",

@@ -48,7 +48,7 @@
 
 | Item | Requirement |
 |------|-------------|
-| Round | **Alloy** protective tube; **manual pull-off cap** removed by soldier on load |
+| Round | **Alloy** protective tube; **pop-top** + **breech screw cap** opened on prep (no tools) |
 | Breech | **Gustav-style flip**; spring-loaded bolt; **positive lock** |
 | Triggers | Front = seeker + tone; rear = fire (front held) |
 | Retention stop | Mechanical bore stop; release only when breech closed + front held + ready tone |

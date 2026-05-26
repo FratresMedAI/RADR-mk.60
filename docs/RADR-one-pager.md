@@ -15,7 +15,7 @@ Squad and SOF face **Group 1–2 UAS** (FPV, quadcopters, loitering munitions, l
 
 ## How it works (7 steps)
 
-1. Open breech · 2. Remove tube cap · 3. Load tube · 4. Close breech (locks)  
+1. Open breech · 2. Pop top / unscrew bottom on tube · 3. Load tube · 4. Close breech (locks)  
 5. Hold **front trigger** → IR seeker + **lock tone** (retention stop releases)  
 6. Pull **rear trigger** (front held) → fire  
 7. Open breech → empty tube drops  

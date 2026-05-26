@@ -35,3 +35,8 @@
 - Replaced holographic **1.5×–4×** optic with **digital camera-style sight**, **smooth 1×–20×** zoom.
 - **+ / −** on foregrip wired to sight + fold-out display; **RPG-style shouldering** (no cheek weld).
 - Updated README, DOC-01/02/03/05/06, Annex F/G/I/J, `baseline_systems.json`, pitch deck draft.
+
+## Container art + two-end closure (2026-05-25)
+
+- Locked [`visuals/rocket/output/radr-container-authoritative.png`](visuals/rocket/output/radr-container-authoritative.png) — **pop top** (PULL) + **breech screw cap** (hand-unscrew).
+- Side view: **left = top**, **right = breech**. Prep sequence in Annex F, JSON `round_packaging`, README gallery.

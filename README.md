@@ -15,6 +15,12 @@
 
 Thin **~6 in** fold-down bar on the forward black sleeve; **visible hinge**; no fixed shoulder stock. Full geometry: [shoulder bar spec](visuals/launcher/SHOULDER-BAR-SPEC.md).
 
+## Round container (alloy tube)
+
+![RADR alloy protective tube — pop top, screw bottom](visuals/rocket/output/radr-container-authoritative.png)
+
+**Pop top** (PULL tab) · **unscrew bottom** (hand screw cap, no tools) · Side view: **left = top**, **right = breech**. Spec: [CONTAINER-SPEC](visuals/rocket/CONTAINER-SPEC.md).
+
 ---
 
 ## Core Vision
@@ -60,7 +66,7 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 | **Motor** | Mildly progressive solid; **2950–3050 N·s**; **~3.3 s**; **750–850 N** → **1050–1150 N** peak; **~330–350 m/s** @ 1000 m | Locked |
 | **Range goal** | **1000 m** effective | Locked |
 | **Backblast** | **≤ 10 yards (30 ft)** | Locked |
-| **Protective tube** | **Alloy** robust tube + **manual pull-off cap** (soldier removes on load) | Locked |
+| **Protective tube** | **Alloy** tube — **pop-top** (PULL tab) + **breech screw cap** (hand-unscrew to expose round) | Locked |
 | **Breech** | **Gustav-style flip**; spring-loaded bolt + **positive mechanical lock** (bolt-action feel) | Locked |
 | **Controls** | **Front** = seeker + audible tone; **rear** = fire (front held) | Locked |
 | **Shoulder bar** | **6 in** thin rod; hinge on **forward black sleeve**; [stowed](visuals/launcher/output/radr-bazooka-authoritative-stowed.png) / [deployed](visuals/launcher/output/radr-bazooka-authoritative-deployed.png) | Locked |
@@ -85,7 +91,7 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 ## Operational Sequence (Locked)
 
 1. **Open breech** — pull spring-loaded bolt handle and swing breech open  
-2. **Remove cap** from alloy protective tube  
+2. **Pop top** (PULL tab) and **unscrew bottom** screw cap on alloy tube; inspect round  
 3. **Insert tube** into launcher bore until seated  
 4. **Close breech** — release bolt handle; breech **auto-locks** (deadbolt snap)  
 5. **Hold front trigger** — seeker activates; **audible lock tone**; retention stop **disengages**  

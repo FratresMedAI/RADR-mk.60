@@ -52,7 +52,7 @@ flowchart TB
     Vent[RecoillessVent_Rear]
   end
   subgraph Tube [AlloyProtectiveTube]
-    CapOff[CapRemoved]
+    ClosuresOpen[PopTop_UnscrewBottom]
     subgraph Rocket [Rocket_18in]
       Seeker[Seeker_100mm]
       WH[Warhead_Cubes]
@@ -66,7 +66,7 @@ flowchart TB
   Vent --> VentNote[10yd_DangerZone]
 ```
 
-- **Alloy protective tube** is the factory shipping and launch container (soldier removes pull-off cap before load).  
+- **Alloy protective tube** is the factory shipping and launch container — **pop-top** (PULL tab) + **breech-end screw cap** (hand-unscrew to expose round before load). Art: [`radr-container-authoritative.png`](../visuals/rocket/output/radr-container-authoritative.png).  
 - **Rocket** rides inside the tube; tube rim mates **breech sealing face** and **rim contacts**.  
 - On fire, motor exhaust vents **rear** through launcher — not a closed-bore cannon.
 
@@ -163,7 +163,7 @@ flowchart LR
 | Zoom control | **+ / −** on **aft face** of foregrip — smooth zoom, same handle bus as display |
 | Launcher power | Grip battery — sight, display, zoom, fire-control |
 | Finish | Matte tactical camo (non-reflective) |
-| Round | Alloy protective tube; soldier removes **manual pull-off cap** before load |
+| Round | Alloy protective tube; **pop top** + **unscrew bottom** screw cap before load ([container art](../visuals/rocket/output/radr-container-authoritative.png)) |
 | Seating | Pressure sensor + electrical contacts |
 | Triggers | **Front:** same curved pistol trigger as rear, **slightly smaller** — seeker + **audible lock tone** · **Rear:** fire (front held) |
 | **Retention stop** | Mechanical bore stop — see below |
@@ -327,7 +327,7 @@ Detail: [Annex H — Motor](../annexes/H-motor-progressive-burn.md) · [Annex I 
 | Step | Action |
 |------|--------|
 | 1 | Open breech |
-| 2 | Pop cap off tube |
+| 2 | Pop top (PULL); unscrew bottom screw cap; inspect round |
 | 3 | Load tube |
 | 4 | Close breech — deadbolt locks, **SEATED** |
 | 5 | Hold front trigger → **lock tone** (retention stop **releases**) |

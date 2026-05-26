@@ -33,7 +33,7 @@
 
 ## Slide 4 — How the gunner fights (sequence)
 
-1. Open breech → cap off → load → close  
+1. Open breech → pop top / unscrew bottom → inspect → load → close  
 2. Front trigger → tone → retention stop out  
 3. Rear trigger → fire → clear 10 yd → reload  
 
