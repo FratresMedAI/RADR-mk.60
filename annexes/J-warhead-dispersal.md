@@ -147,6 +147,18 @@ sequenceDiagram
 
 **Purpose:** Recover **~60 g** for slightly higher burnout / coast margin when analyzing **1200 m** closure — **does not** change the locked **300-cube** warhead for **1000 m** effectiveness.
 
+**Trajectory check (`radr_trajectory.py`, nominal motor):**
+
+| Mass (kg) | v @ 1000 m | v @ 1200 m | Δ vs 3.1 kg @ 1200 m |
+|-----------|------------|------------|----------------------|
+| **3.10** (300-cube baseline) | **334.7** | **331.9** | — |
+| **3.04** (−60 g, 275-cube) | 335.1 | 332.2 | **+0.3 m/s** |
+| **2.95** (−150 g stretch) | 335.6 | 332.6 | **+0.7 m/s** |
+
+The baseline round **already reaches 1200 m** in the point-mass model (~3 m/s slower than @ 1000 m). Shedding **25 cubes** does **not** buy a meaningful new range class — only **~0.3 m/s** at 1200 m while costing fragment count and cone density.
+
+**Recommendation (locked):** Keep **1000 m** KPP and **300 × 7 mm**. Treat **1200 m** and **275-cube** as **archived trade-study** — not a product variant unless a future motor/backblast trade reopens the envelope.
+
 **Forward cone:** Lighter pack may require **slightly tighter column bias** in the nose aperture; pattern width target (**~10–12 ft @ ~20 ft**) unchanged in concept.
 
 ---

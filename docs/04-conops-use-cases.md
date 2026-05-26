@@ -10,7 +10,7 @@
 
 ## Standard Engagement
 
-Summary: open breech → **pop top / unscrew bottom** on **alloy** tube → inspect → load → close (locks) → **rough-aim on fold-out display** (digital sight **1×–20×**, foregrip **+ / −**) → **front trigger** (tone; retention stop releases) → **rear trigger** → fire → open breech → empty tube drops.
+Summary: open breech → **pop top** → **load tube** → **unscrew bottom in bore** → close → **rocket ready** → **rough-aim on fold-out display** (digital sight **1×–20×**, foregrip **+ / −**) → **front trigger** (tone; retention stop releases) → **rear trigger** → fire → open breech → empty tube drops.
 
 **Authoritative sequence** (interlocks, abort rules, breech states): [Annex F](../annexes/F-employment-and-breech.md).
 
@@ -18,7 +18,7 @@ Summary: open breech → **pop top / unscrew bottom** on **alloy** tube → insp
 
 ## Use Case 1: FPV Kamikaze — Trench / Assault
 
-**Threat:** FPV terminal attack after position seizure (**150–600 m**).  
+**Threat:** FPV terminal attack after position seizure (**200–600 m**).  
 **Action:** Gunner engages from cover; speed limits reaction time; cube cone defeats airframe.  
 **Why RADR:** MG cannot track/commit; SAM not called in time.
 

@@ -16,7 +16,7 @@
 
 ## Slide 2 — The gap
 
-- FPV, quads, loiter, glide UAS in **150–1000 m**  
+- FPV, quads, loiter, glide UAS — **200 m** min, **800–1200 m** band, **1000 m** sweet spot, **1200 m** max  
 - MG runs out of effective range; SAM not always there  
 - Need: **fast, simple, reloadable**, one-person carry  
 
@@ -33,7 +33,7 @@
 
 ## Slide 4 — How the gunner fights (sequence)
 
-1. Open breech → pop top / unscrew bottom → inspect → load → close  
+1. Open breech → pop top → load tube → unscrew bottom in bore → close → rocket ready  
 2. Front trigger → tone → retention stop out  
 3. Rear trigger → fire → clear 10 yd → reload  
 

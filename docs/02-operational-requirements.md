@@ -10,7 +10,7 @@ Annex B: [KPP Targets](../annexes/B-kpp-targets.md)
 
 ## Primary Mission
 
-Provide **squad and SOF** a **mid-range drone destroyer** — **mid-range** defeat of **Group 1–2 UAS** at **150–1000 m** using a **speed-first** guided flak rocket with **one-person reload**.
+Provide **squad and SOF** a **mid-range drone destroyer** — defeat **Group 1–2 UAS** from **200 m** minimum through **1200 m** maximum (**800–1200 m** primary band; **1000 m** design sweet spot) using a **speed-first** guided flak rocket with **one-person reload**.
 
 ---
 
@@ -27,6 +27,19 @@ The system shall be designed to engage:
 | TH-05 | Other Group 1–2 UAS in swarm / interdiction roles | High |
 
 **Out of threat set:** Group 3+ UAS, fixed-wing aircraft, armored ground targets.
+
+---
+
+## Range envelope (locked)
+
+| | Range | Notes |
+|---|-------|-------|
+| **Minimum** | **200 m** | Not closer — compressed seeker lock, **boost-phase** shot (~1.6 s TOF @ 200 m), proximity fuze needs flight path to **~20 ft** standoff |
+| **Primary band** | **800–1200 m** | Mid-range vs. MG/SAM gap |
+| **Sweet spot** | **1000 m** | Motor/velocity design anchor (**330–350 m/s**) |
+| **Maximum** | **1200 m** | Envelope (~332 m/s, ~4.7 s TOF) |
+
+**200–800 m** is valid close-in employment; **800 m** is the lower edge of the primary band, not the minimum engagement distance.
 
 ---
 
@@ -47,9 +60,12 @@ The system shall be designed to engage:
 | Guidance | **Moderate-maneuver** nose canards | Not high OBA |
 | Fins | 4 spring-loaded swept; **mechanical lock** when deployed | Deploy on exit |
 | Motor | Evolution Space propellant; **mildly progressive** burn (**750–850 N** first **1–2 s**, ramp to **1050–1150 N**); **2950–3050 N·s**; **~3.3 s** | Locked |
-| Range | ≥ 800 m | **1000 m** effective |
+| Range (min) | **≥ 200 m** | Locked |
+| Range (band) | **800–1200 m** employment | Locked |
+| Range (sweet spot) | **1000 m** | **330–350 m/s** calibrated here |
+| Range (max) | **1200 m** | Locked envelope |
 | Backblast | ≤ 10 yd (30 ft) | Locked |
-| Tube | **Alloy** protective tube; **pop-top** + **breech screw cap** | Locked |
+| Tube | **Tank-shell** alloy/composite tube; pop top → load → unscrew bottom in bore | Locked |
 | Breech | Gustav flip + positive lock | Locked |
 | Controls | Dual-trigger + lock tone; **front** = seeker/tone, **rear** = fire | Locked |
 | Sight | **Digital cam sight**; **smooth 1×–20×**; **+ / −** on foregrip; fold-out display | Locked |
@@ -79,12 +95,13 @@ The system shall be designed to engage:
 | Step | Gunner action | System response |
 |------|---------------|-----------------|
 | 1 | Open breech (pull spring bolt, swing open) | Rear trigger disabled; retention stop **engaged** |
-| 2 | Pop top (PULL); unscrew bottom screw cap; inspect round | Round exposed in tube, outside bore |
-| 3 | Load tube into launcher | — |
-| 4 | Close breech | Deadbolt locks; seat confirm |
-| 5 | Hold front trigger | Seeker on; tone at lock; retention stop **disengages** |
-| 6 | Pull rear trigger (front held) | Launch |
-| 7 | Open breech after safe interval | Empty tube drops |
+| 2 | Pop top (PULL) on tube | Top open |
+| 3 | Slide tube into bore | Tube seated |
+| 4 | Unscrew bottom cap in bore | Rocket exposed in tube |
+| 5 | Close breech | **Rocket ready** (continuity) |
+| 6 | Hold front trigger | Seeker on; tone at lock; retention stop **disengages** |
+| 7 | Pull rear trigger (front held) | Rocket flies free |
+| 8 | Open breech after safe interval | Spent tube drops |
 
 **Authoritative interlocks:** [Annex F](../annexes/F-employment-and-breech.md) — [Gunner sequence](../annexes/F-employment-and-breech.md#loading-and-firing--gunners-sequence) · [Retention stop](../annexes/F-employment-and-breech.md#rocket-retention-stop) · [Breech](../annexes/F-employment-and-breech.md#breech-mechanism)
 

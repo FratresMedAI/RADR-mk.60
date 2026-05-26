@@ -7,18 +7,18 @@
 
 ## Problem
 
-Squad and SOF face **Group 1–2 UAS** (FPV, quadcopters, loitering munitions, low-signature gliders) in the **150–1000 m** band. Machine guns lack reach; SAM is too heavy and scarce for every contact.
+Squad and SOF face **Group 1–2 UAS** (FPV, quadcopters, loitering munitions, low-signature gliders) from **200 m** out to **1200 m** (**1000 m** sweet spot). Machine guns lack reach; SAM is too heavy and scarce for every contact.
 
 ## Solution
 
 **RADR** — a **lightweight, reusable**, shoulder-fired **recoilless** **mid-range drone destroyer**. One gunner, one reload: **≤ 9.0 kg** (launcher + round).
 
-## How it works (7 steps)
+## How it works (8 steps)
 
-1. Open breech · 2. Pop top / unscrew bottom on tube · 3. Load tube · 4. Close breech (locks)  
-5. Hold **front trigger** → IR seeker + **lock tone** (retention stop releases)  
-6. Pull **rear trigger** (front held) → fire  
-7. Open breech → empty tube drops  
+1. Open breech · 2. Pop top · 3. Load tube · 4. Unscrew bottom in bore · 5. Close → rocket ready  
+6. Hold **front trigger** → IR seeker + **lock tone** (retention stop releases)  
+7. Pull **rear trigger** (front held) → rocket flies free  
+8. Open breech → spent tube drops  
 
 ## Locked specs (summary)
 
@@ -29,7 +29,7 @@ Squad and SOF face **Group 1–2 UAS** (FPV, quadcopters, loitering munitions, l
 | Warhead | **300 × 7 mm** alloy cubes + **pyrotechnic dispersal** |
 | Fuze | Radar/mm-wave **proximity** + **timed backup** @ ~20 ft |
 | Motor | **2950–3050 N·s**, **~3.3 s** mildly progressive |
-| Range goal | **1000 m** · **~330–350 m/s** at intercept (notional) |
+| Range | **200 m** min · **800–1200 m** · **1000 m** sweet spot · **1200 m** max |
 | Backblast | **≤ 10 yd (30 ft)** rear |
 
 ## Safety

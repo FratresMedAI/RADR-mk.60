@@ -15,12 +15,13 @@ This annex is the **authoritative** reference for breech mechanics, the rocket r
 | Step | You do | You hear / feel |
 |------|--------|-----------------|
 | 1 | **Pull** bolt handle back → **swing** breech open | Spring pressure; detent click |
-| 2 | Prep round: **pop top** (PULL tab), **unscrew bottom** screw cap | Expose rocket; inspect seeker |
-| 3 | **Slide** tube into bore until rim seats | Light detent |
-| 4 | **Swing** breech closed → **push** handle forward until **click** | Deadbolt snap; sealing face loaded |
-| 5 | Hold **front** trigger → wait for **steady lock tone** | Tone = retention releases |
-| 6 | **Rear** trigger — fire | Motor ignition; recoil through grips + **shoulder bar** + rear pad |
-| 7 | Clear **10 yd** rear → open breech; spent tube drops | Spring return |
+| 2 | **Pop top** (red **PULL** tab) on tube | Top open; bottom cap still on |
+| 3 | **Slide** entire tube into bore until rim seats | Light detent |
+| 4 | **Unscrew bottom** screw cap (in bore; gloves OK) | Rocket exposed in tube |
+| 5 | **Close** breech → **click** | Deadbolt snap; **rocket ready** (continuity) |
+| 6 | Hold **front** trigger → **steady lock tone** | Retention releases |
+| 7 | **Rear** trigger — fire | Rocket flies free; motor + rear vent |
+| 8 | Clear **10 yd** rear → open breech; **spent tube drops** | Spring return |
 
 **Never:** hip fire; fire without lock tone; stand in rear arc during load or post-shot.
 
@@ -48,7 +49,7 @@ This annex is the **authoritative** reference for breech mechanics, the rocket r
 
 ## Loading and Firing — Gunner’s Sequence
 
-Seven phases from the gunner’s perspective. Each phase lists what you do, what you hear or feel, how the system responds, what is blocked, and what you must not do.
+Eight phases from the gunner’s perspective. Each phase lists what you do, what you hear or feel, how the system responds, what is blocked, and what you must not do.
 
 ### Phase 1 — Clear the breech
 
@@ -58,17 +59,19 @@ Seven phases from the gunner’s perspective. Each phase lists what you do, what
 | **Hear / feel** | Handle moves against spring pressure (~15–25 mm); hinge swings freely; open detent holds block up. |
 | **System response** | `BREECH_OPEN` — rear trigger disabled; seeker off; retention stop **engaged**. |
 | **Interlock** | No seeker; no fire; rocket cannot translate forward in bore (stop engaged). |
-| **Do not** | Stand in the **10 yd (30 ft)** rear danger zone; load with closures still sealed. |
+| **Do not** | Stand in the **10 yd (30 ft)** rear danger zone; load with **top still sealed**. |
 
-### Phase 2 — Prepare the round
+**Tank-shell model:** The **protective tube stays in the launcher**; the **rocket is smaller than the tube** and **flies free** after the retention stop releases. CAD: [`CONTAINER-SPEC.md`](../visuals/rocket/CONTAINER-SPEC.md).
+
+### Phase 2 — Pop top
 
 | | |
 |--|--|
-| **Gunner action** | On the **alloy protective tube** (off launcher): **pop top** — pull-tab **PULL** cap; **unscrew bottom** — hand-loosen **screw cap** to expose the rocket; visually inspect **seeker dome** and round condition. |
-| **Hear / feel** | Top pops clean; bottom cap threads off quickly — **no tools**. |
-| **System response** | Round accessible inside tube; container still **outside** bore. |
+| **Gunner action** | On the **alloy protective tube** (off launcher): pull the red **PULL** tab; **open top** — bottom screw cap **still on**. |
+| **Hear / feel** | Top pops clean — **no tools**. |
+| **System response** | `TUBE_TOP_OPEN` — ready to insert. |
 | **Interlock** | — |
-| **Do not** | Force or pry pull tab; cross-thread screw cap; damage seeker dome; skip visual check. |
+| **Do not** | Force or pry pull tab; unscrew bottom before tube is in bore. |
 
 **Container art (side view, left → right):** top / **PULL** on the **left**, breech **screw cap** on the **right** — [`radr-container-authoritative.png`](../visuals/rocket/output/radr-container-authoritative.png).
 
@@ -76,23 +79,33 @@ Seven phases from the gunner’s perspective. Each phase lists what you do, what
 
 | | |
 |--|--|
-| **Gunner action** | Slide the protective tube into the bore until the rim seats on the sealing face (breech still open or closing). |
+| **Gunner action** | **Slide the entire tube** into the bore until the rim seats on the sealing face (breech open; **bottom cap still on**). |
 | **Hear / feel** | Light alignment detent as tube homes; no slam required. |
-| **System response** | `OPEN_LOADED` → tube in bore, breech not locked. |
-| **Interlock** | Seeker off; retention stop **engaged**. |
-| **Do not** | Insert with top or bottom closure still on; slam tube; partial insert. |
+| **System response** | `OPEN_LOADED` — tube in bore, breech not locked. |
+| **Interlock** | Seeker off; retention stop **engaged** on tube shoulder. |
+| **Do not** | Insert with top still sealed; slam tube; partial insert. |
 
-### Phase 4 — Close and lock the breech
+### Phase 4 — Unscrew bottom (in bore)
+
+| | |
+|--|--|
+| **Gunner action** | **Unscrew** the breech-end **hand screw cap** while the tube is seated in the bore — **glove-friendly**, no tools. |
+| **Hear / feel** | Cap threads off quickly; rocket visible through open breech end of tube. |
+| **System response** | `TUBE_BREECH_OPEN` — rocket exposed inside tube; tube remains in launcher. |
+| **Interlock** | Seeker off; retention stop **engaged**. |
+| **Do not** | Cross-thread cap; remove tube to unscrew bottom (cap is undone **in bore**). |
+
+### Phase 5 — Close breech and rocket ready
 
 | | |
 |--|--|
 | **Gunner action** | Swing breech block closed; **release** bolt handle so the return spring drives it forward. |
-| **Hear / feel** | **Deadbolt snap** — positive mechanical click; block cannot be opened without another deliberate pull on the handle. |
-| **System response** | `LOCKED_SEATED` — pressure port and rim contacts confirm seat; seeker may be enabled; retention stop still **engaged**. |
+| **Hear / feel** | **Deadbolt snap** — positive mechanical click. |
+| **System response** | `LOCKED_SEATED` — pressure port + rim/foil contacts → **electrical continuity** → **rocket ready**; seeker may be enabled; retention stop still **engaged**. |
 | **Interlock** | Rear trigger blocked; fire blocked until lock tone. |
-| **Do not** | Close on a misaligned tube; arm seeker before seat confirm. |
+| **Do not** | Close on a misaligned tube; arm seeker before **rocket ready** confirm. |
 
-### Phase 5 — Arm the seeker (front trigger)
+### Phase 6 — Arm the seeker (front trigger)
 
 | | |
 |--|--|
@@ -102,17 +115,17 @@ Seven phases from the gunner’s perspective. Each phase lists what you do, what
 | **Interlock** | Rear fire blocked; stop engaged until ready tone. |
 | **Do not** | Pull rear trigger; snap-shot outside seeker FOV. |
 
-### Phase 6 — Lock and fire
+### Phase 7 — Lock and fire
 
 | | |
 |--|--|
 | **Gunner action** | Maintain aim until **steady lock tone**; while **holding front**, pull **rear trigger**. Keep front held through ignition. |
 | **Hear / feel** | Steady tone = lock; retention stop releases (no forward creep under bump); launch pulse and rear vent. |
-| **System response** | `SEEKER_LOCKED` → `FIRED` — retention stop **disengaged** with tone; motor ignites; recoilless exhaust vents rear. |
+| **System response** | `SEEKER_LOCKED` → `FIRED` — retention stop **disengaged** with tone; **rocket flies free** of tube; motor ignites; recoilless exhaust vents rear. |
 | **Interlock** | Rear enabled only with tone + front held; releasing front re-engages stop and blocks fire. |
 | **Do not** | Release front during ignition; fire without tone; override interlocks. |
 
-### Phase 7 — Clear and reload
+### Phase 8 — Clear and reload
 
 | | |
 |--|--|
@@ -129,16 +142,17 @@ Seven phases from the gunner’s perspective. Each phase lists what you do, what
 | Step | Action | Expected feedback | Do not |
 |------|--------|-------------------|--------|
 | 1 | Pull spring bolt handle; swing breech ~90° open | Breech holds open on detent | Stand in backblast cone |
-| 2 | Verify bore clear; eject spent tube if present | Empty bore | Load with cap on |
-| 3 | Pop top (PULL); unscrew bottom screw cap | Rocket exposed for inspect | Force tab; cross-thread screw cap |
-| 4 | Slide tube into bore until fully home | Light detent feel | Slam tube; skip alignment |
-| 5 | Swing breech closed; release bolt handle | **Deadbolt snap** — positive lock | Close without full insert |
-| 6 | Wait for seat confirm (pressure + contacts) | Seat logic OK | Arm seeker if not seated |
-| 7 | Hold **front trigger**; point at threat | Seeker search; stop **engaged** until tone | Fire rear without tone |
-| 8 | Maintain aim until **audible lock tone** | Steady tone; stop **disengages** | Snap-shot off-boresight |
-| 9 | While holding front, pull **rear trigger** | Launch + backblast | Release front during ignition |
-| 10 | Hold position until motor clears tube | Recoilless vent rear | Re-open breech immediately |
-| 11 | Open breech; let empty tube fall | Tube drops free | Reach into bore without clear rear |
+| 2 | Verify bore clear; eject spent tube if present | Empty bore | Load with top sealed |
+| 3 | Pop top (PULL) on fresh tube | Top open | Force tab |
+| 4 | Slide entire tube into bore until fully home | Light detent feel | Slam tube; bottom off before insert |
+| 5 | Unscrew bottom screw cap **in bore** | Breech end open | Cross-thread cap |
+| 6 | Swing breech closed; release bolt handle | **Deadbolt snap**; **rocket ready** | Close without full insert |
+| 7 | Wait for continuity + seat confirm | Rocket ready logic OK | Arm seeker if not ready |
+| 8 | Hold **front trigger**; point at threat | Seeker search; stop **engaged** until tone | Fire rear without tone |
+| 9 | Maintain aim until **audible lock tone** | Steady tone; stop **disengages** | Snap-shot off-boresight |
+| 10 | While holding front, pull **rear trigger** | Rocket flies free; backblast | Release front during ignition |
+| 11 | Hold position until motor clears tube | Recoilless vent rear | Re-open breech immediately |
+| 12 | Open breech; let empty tube fall | Tube drops free | Reach into bore without clear rear |
 
 ---
 
@@ -147,9 +161,10 @@ Seven phases from the gunner’s perspective. Each phase lists what you do, what
 | Phase | Gunner action | System state | Interlocks |
 |-------|---------------|--------------|------------|
 | **CLEAR** | Open breech; ensure prior tube ejected | `BREECH_OPEN` | Rear disabled; stop **engaged** |
-| **PREP** | Pop top; unscrew bottom; inspect round | Round exposed in tube, out of bore | — |
-| **LOAD** | Insert tube; begin close | `BREECH_CLOSING` / `OPEN_LOADED` | Stop **engaged** |
-| **SEAT** | Close breech; deadbolt locks | `LOCKED_SEATED` | Seeker off until seated |
+| **POP_TOP** | Pull **PULL** tab; open top | `TUBE_TOP_OPEN` | — |
+| **LOAD** | Slide entire tube into bore | `OPEN_LOADED` | Stop **engaged** |
+| **EXPOSE** | Unscrew bottom cap in bore | `TUBE_BREECH_OPEN` | Stop **engaged** |
+| **SEAT** | Close breech; continuity | `LOCKED_SEATED` / **rocket ready** | Seeker off until ready |
 | **ARM** | Hold front trigger; wait for tone | `SEEKER_ARMED` | Rear blocked; stop **engaged** |
 | **READY** | Lock tone active (front held) | `SEEKER_LOCKED` | Rear enabled; stop **disengaged** |
 | **FIRE** | Pull rear while holding front | `FIRED` / launch | Front must stay held |
@@ -418,7 +433,7 @@ The intended emotional model: **“closed” is not enough — “snapped” is 
 |------|-----------|--------|
 | **Unlock** | Gunner pulls **bolt handle** rearward (~15–25 mm) against a compression spring | **Unlock cam** lifts **deadbolt detent** off breech block |
 | **Open** | Block pivots **~90°** on rear **hinge axis** | Bore and recoilless vent exposed; detent holds block open |
-| **Load** | Alloy protective tube (cap removed) slides in until **rim seats** on **sealing face** | Tube aligned for contacts and pressure port |
+| **Load** | Pop top → slide tube in → unscrew bottom in bore → close breech | Rim seats; foil continuity → **rocket ready** |
 | **Close** | Block swung forward; sealing face mates tube rim | Bore closed mechanically |
 | **Lock** | Gunner **releases** handle; return spring drives handle forward | **Deadbolt cam** drops into machined detent — **positive stop** |
 | **Confirm** | Pressure transducer + rim electrical contacts | `SEATED` asserted — gates seeker and retention logic |
@@ -481,7 +496,7 @@ stateDiagram-v2
 
 1. **Unlock:** Pull bolt handle (compress return spring; unlock cam clears deadbolt).  
 2. **Open:** Swing block ~90° on hinge.  
-3. **Load:** Insert alloy protective tube (top popped, bottom screw cap off, inspected).  
+3. **Load:** Pop top → slide tube in → unscrew bottom **in bore** → close breech → **rocket ready** (continuity).  
 4. **Close:** Swing block to closed; sealing face mates rim.  
 5. **Lock:** Release handle; deadbolt cam engages — **snap**.  
 6. **Confirm:** Pressure + contacts → `SEATED`.  
@@ -501,7 +516,7 @@ sequenceDiagram
 
   G->>B: Pull bolt open breech
   RS->>RS: Engaged
-  G->>G: Pop cap inspect round
+  G->>G: Pop top load unscrew bottom close
   G->>B: Load tube close breech
   B->>F: SEATED confirm
   RS->>RS: Engaged

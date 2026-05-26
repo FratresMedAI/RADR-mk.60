@@ -6,7 +6,7 @@
 
 ---
 
-RADR fills the **150–1000 m mid-range counter-UAS** slot for **Group 1–2 UAS** in a layered stack.
+RADR fills the **200 m–1200 m** mid-range counter-UAS slot (**800–1200 m** primary; **1000 m** sweet spot) for **Group 1–2 UAS** in a layered stack.
 
 | Layer | Role |
 |-------|------|

@@ -42,7 +42,7 @@ See [`scripts/README.md`](../scripts/README.md) for assumptions. CI runs `--smok
 | 500 | ~2.62 | ~314 | Mid-course |
 | 750 | ~3.37 | ~339 | Near burnout corridor |
 | **1000** | **~4.12** | **~335** | **Locked band 330–350** |
-| **1200** | **~4.72** | **~332** | **Stretch / trade-study — not locked** |
+| **1200** | **~4.72** | **~332** | **Max range** (envelope) |
 
 Burnout (motor tail-off): **~339 m/s** at **~726 m** downrange, **3000 N·s** impulse integration.
 
@@ -110,15 +110,15 @@ Full profile: `data/performance_model_output.json` → `acceleration_profile`.
 
 ---
 
-## 1200 m Stretch (Trade-Study — Not Locked)
+## Range envelope (locked framing)
 
-| Item | Notional value | Purpose |
-|------|----------------|---------|
-| Velocity @ 1200 m | **~332 m/s** (script) | Closure margin study |
-| TOF @ 1200 m | **~4.72 s** | Timing for extended engagement |
-| Lighter pack variant | **275 × 7 mm** cubes | See [Annex J — Trade-study](J-warhead-dispersal.md#trade-study-275-cube-pack-1200-m-stretch--not-locked) |
+| Band | Range | Script (nominal) | Role |
+|------|-------|------------------|------|
+| **Minimum** | **200 m** | ~253 m/s, ~1.6 s TOF; **boost** | Do not engage closer |
+| **Sweet spot** | **1000 m** | **~335 m/s**, ~4.1 s TOF | **330–350 m/s** anchor |
+| **Maximum** | **1200 m** | ~332 m/s, ~4.7 s TOF | Envelope limit |
 
-**300 × 7 mm @ 1000 m** remains the locked KPP. **1200 m** and **275-cube** lines are engineering placeholders only.
+**800–1200 m** = primary employment band. **275-cube** lighter pack **archived** — see [Annex J](J-warhead-dispersal.md#trade-study-275-cube-pack-1200-m-stretch--not-locked).
 
 ---
 

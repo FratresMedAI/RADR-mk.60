@@ -25,7 +25,7 @@ Traceability: [06 — System Description](../docs/06-system-description.md) · [
 | **Initial thrust** | **~750–850 N** (first **1–2 s**) |
 | **Peak thrust** | **~1050–1150 N** |
 | **Est. velocity @ 1000 m** | **~330–350 m/s** |
-| Range goal | **1000 m** effective |
+| Range envelope | **200 m** min · **800–1200 m** · **1000 m** sweet spot · **1200 m** max |
 
 **Assessment:** Solid, achievable target for a **60 mm × 18 in** round within recoilless **10 yd** backblast SOP and squad carry mass.
 

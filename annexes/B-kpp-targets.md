@@ -25,7 +25,8 @@
 | KPP-01 | Launcher mass (empty) | ≤ 5.5 kg | 5.5 kg |
 | KPP-02 | Rocket mass | ≤ 3.5 kg | 3.5 kg |
 | KPP-03 | Caliber | 60 mm | 60 mm |
-| KPP-04 | Range | ≥ 800 m | **1000 m** |
+| KPP-04 | Range (min) | **200 m** | **200 m** |
+| KPP-04b | Range (band / sweet / max) | **800–1200 m** | **1000 m** sweet spot |
 | KPP-05 | Backblast | 10 yd (30 ft) | 10 yd |
 | KPP-06 | Fuze | Radar or mm-wave proximity + timed backup | Locked |
 | KPP-07 | System mass (L+1 round) | ≤ 9.0 kg | 9.0 kg |

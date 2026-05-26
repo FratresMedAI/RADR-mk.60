@@ -19,7 +19,7 @@ Thin **~6 in** fold-down bar on the forward black sleeve; **visible hinge**; no 
 
 ![RADR alloy protective tube — pop top, screw bottom](visuals/rocket/output/radr-container-authoritative.png)
 
-**Pop top** (PULL tab) · **unscrew bottom** (hand screw cap, no tools) · Side view: **left = top**, **right = breech**. Spec: [CONTAINER-SPEC](visuals/rocket/CONTAINER-SPEC.md).
+**Tank-shell tube** (stays in launcher; rocket flies free) · **Pop top** → **load** → **unscrew bottom in bore** → close → **rocket ready**. Art: side **left = top**, **right = breech**. Spec: [CONTAINER-SPEC](visuals/rocket/CONTAINER-SPEC.md).
 
 ---
 
@@ -64,9 +64,9 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 | **Guidance** | **Moderate-maneuver**; small movable **canards near nose** | Locked |
 | **Fins** | **4** swept **spring-loaded** at base; deploy on exit; **mechanical lock** once deployed | Locked |
 | **Motor** | Mildly progressive solid; **2950–3050 N·s**; **~3.3 s**; **750–850 N** → **1050–1150 N** peak; **~330–350 m/s** @ 1000 m | Locked |
-| **Range goal** | **1000 m** effective | Locked |
+| **Range** | **200 m** min · **800–1200 m** band · **1000 m** sweet spot · **1200 m** max; **330–350 m/s** @ 1000 m | Locked |
 | **Backblast** | **≤ 10 yards (30 ft)** | Locked |
-| **Protective tube** | **Alloy** tube — **pop-top** (PULL tab) + **breech screw cap** (hand-unscrew to expose round) | Locked |
+| **Protective tube** | **Tank-shell** alloy/composite tube — **PULL** pop top; **screw bottom** in bore; foil contacts → **rocket ready** | Locked |
 | **Breech** | **Gustav-style flip**; spring-loaded bolt + **positive mechanical lock** (bolt-action feel) | Locked |
 | **Controls** | **Front** = seeker + audible tone; **rear** = fire (front held) | Locked |
 | **Shoulder bar** | **6 in** thin rod; hinge on **forward black sleeve**; [stowed](visuals/launcher/output/radr-bazooka-authoritative-stowed.png) / [deployed](visuals/launcher/output/radr-bazooka-authoritative-deployed.png) | Locked |
@@ -91,12 +91,13 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 ## Operational Sequence (Locked)
 
 1. **Open breech** — pull spring-loaded bolt handle and swing breech open  
-2. **Pop top** (PULL tab) and **unscrew bottom** screw cap on alloy tube; inspect round  
-3. **Insert tube** into launcher bore until seated  
-4. **Close breech** — release bolt handle; breech **auto-locks** (deadbolt snap)  
-5. **Hold front trigger** — seeker activates; **audible lock tone**; retention stop **disengages**  
-6. **Pull rear trigger** while holding front → **rocket fires** (recoilless vent ≤ 10 yd rear)  
-7. **Open breech** — empty protective tube **drops out** for reload  
+2. **Pop top** (PULL tab) on alloy tube  
+3. **Slide tube** into launcher bore until seated  
+4. **Unscrew bottom** screw cap in bore (gloves OK)  
+5. **Close breech** — deadbolt snap → **rocket ready** (electrical continuity)  
+6. **Hold front trigger** — seeker + **lock tone**; retention stop **disengages**  
+7. **Pull rear trigger** (front held) → **rocket flies free** (recoilless vent ≤ 10 yd rear)  
+8. **Open breech** — spent protective tube **drops out** for reload  
 
 **Carry:** Launcher + one round ≤ **9.0 kg** — one person can reload. Retention stop **engaged** whenever front trigger is not held.
 

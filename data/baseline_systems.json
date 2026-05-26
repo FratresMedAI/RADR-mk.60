@@ -88,7 +88,11 @@
     },
     "round_packaging": {
       "type": "alloy_protective_tube",
-      "description": "robust_sealed_shipping_and_launch_container",
+      "philosophy": "tank_shell_tube_stays_in_launcher_rocket_flies_free",
+      "description": "lightweight_alloy_or_composite_camouflage_shipping_and_launch_container",
+      "material": "lightweight_alloy_or_composite",
+      "length": "rocket_oal_plus_small_margin",
+      "internal_diameter": "larger_than_rocket_od_clearance_all_sides",
       "top_closure": {
         "type": "pull_tab_pop_top",
         "label": "PULL",
@@ -97,12 +101,30 @@
       "breech_end_closure": {
         "type": "hand_screw_cap",
         "tools_required": false,
-        "purpose": "expose_round_for_inspection"
+        "glove_friendly": true,
+        "purpose": "expose_rocket_after_tube_seated_in_bore"
       },
-      "prep_sequence": ["pop_top_pull_tab", "unscrew_bottom_screw_cap", "inspect_seeker_and_round"],
+      "internal_features": "minimal_foil_or_contact_points_for_electrical_continuity",
+      "external_marking": "RADR mk.60",
+      "loading_sequence": [
+        "pop_top_pull_tab",
+        "slide_entire_tube_into_launcher",
+        "unscrew_bottom_cover_in_bore",
+        "close_breech",
+        "electrical_continuity_rocket_ready",
+        "front_trigger_lock_tone_retention_releases",
+        "rear_trigger_rocket_flies_free"
+      ],
+      "load_time_target_s_trained": 10,
       "side_view_convention": "horizontal_left_is_top_right_is_breech_screw_cap",
       "concept_art": "visuals/rocket/output/radr-container-authoritative.png",
-      "removed_by": "soldier_during_loading_prep"
+      "tube_eject": "spent_tube_drops_when_breech_opened_post_fire"
+    },
+    "rocket_tube_interface": {
+      "rocket_od": "smaller_than_tube_id",
+      "electrical": "light_wiring_foil_contacts_with_tube_when_seated",
+      "launch_resistance": "minimal_no_bind",
+      "retention_stop_contact": "tube_aft_shoulder_not_bare_rocket"
     },
     "breech": {
       "style": "gustav_flip",
@@ -161,41 +183,48 @@
       },
       {
         "phase": 2,
-        "name": "PREP",
-        "action": "Pop top pull-tab; unscrew bottom screw cap; inspect seeker dome and round",
-        "feedback": "Pop top clean; screw cap hand-loosen; no tools",
+        "name": "POP_TOP",
+        "action": "Pull red tab; open top of tube (bottom cap still on)",
+        "feedback": "Pop top clean; no tools",
         "interlock": null
       },
       {
         "phase": 3,
         "name": "LOAD",
-        "action": "Slide protective tube into bore until seated",
+        "action": "Slide entire protective tube into bore until rim seats",
         "feedback": "Light alignment detent",
         "interlock": "Seeker off; retention engaged"
       },
       {
         "phase": 4,
-        "name": "SEAT",
-        "action": "Close breech; release bolt handle for deadbolt snap",
-        "feedback": "Audible deadbolt snap; seat confirm",
-        "interlock": "Rear blocked until lock tone"
+        "name": "EXPOSE",
+        "action": "Unscrew bottom screw cap of tube in bore",
+        "feedback": "Hand-loosen with gloves; breech end open",
+        "interlock": "Seeker off; retention engaged"
       },
       {
         "phase": 5,
+        "name": "SEAT",
+        "action": "Close breech; deadbolt snap; electrical continuity rocket ready",
+        "feedback": "Audible deadbolt snap; rocket ready confirm",
+        "interlock": "Rear blocked until lock tone"
+      },
+      {
+        "phase": 6,
         "name": "ARM",
         "action": "Hold front trigger; rough aim",
         "feedback": "Seeker search; stop engaged until tone",
         "interlock": "Rear blocked"
       },
       {
-        "phase": 6,
+        "phase": 7,
         "name": "FIRE",
         "action": "Maintain tone; pull rear while holding front",
-        "feedback": "Steady tone; stop disengages; launch and rear vent",
+        "feedback": "Steady tone; stop disengages; rocket flies free; rear vent",
         "interlock": "Front must stay held"
       },
       {
-        "phase": 7,
+        "phase": 8,
         "name": "POST",
         "action": "Clear 10 yd rear; open breech; tube drops",
         "feedback": "Tube falls free",
@@ -311,22 +340,28 @@
         "interlock": "rear_trigger_disabled"
       },
       {
-        "phase": "PREP",
-        "action": "pop_top_unscrew_bottom_inspect_round",
-        "system_state": "ROUND_EXPOSED",
+        "phase": "POP_TOP",
+        "action": "pop_top_pull_tab_open_top",
+        "system_state": "TUBE_TOP_OPEN",
         "interlock": null
       },
       {
         "phase": "LOAD",
-        "action": "insert_tube_close_breech",
-        "system_state": "BREECH_CLOSING",
-        "interlock": null
+        "action": "slide_entire_tube_into_bore",
+        "system_state": "OPEN_LOADED",
+        "interlock": "retention_engaged"
+      },
+      {
+        "phase": "EXPOSE",
+        "action": "unscrew_bottom_screw_cap_in_bore",
+        "system_state": "TUBE_BREECH_OPEN",
+        "interlock": "retention_engaged"
       },
       {
         "phase": "SEAT",
-        "action": "deadbolt_lock_pressure_contacts_confirm",
+        "action": "close_breech_deadbolt_electrical_continuity_rocket_ready",
         "system_state": "LOCKED_SEATED",
-        "interlock": "seeker_off_until_seated"
+        "interlock": "seeker_off_until_rocket_ready"
       },
       {
         "phase": "ARM",
@@ -407,9 +442,9 @@
       "burnout_downrange_m": 726,
       "mean_boost_acceleration_mps2": 293,
       "velocity_at_1000m_mps": { "min": 330, "max": 350, "nominal": 335 },
-      "velocity_at_1200m_mps": { "nominal": 332, "status": "stretch_trade_study_not_locked" },
+      "velocity_at_1200m_mps": { "nominal": 332, "status": "max_range_envelope" },
       "time_of_flight_1000m_s": { "min": 4.0, "max": 5.0, "nominal": 4.12 },
-      "time_of_flight_1200m_s": { "nominal": 4.72, "status": "stretch_trade_study_not_locked" },
+      "time_of_flight_1200m_s": { "nominal": 4.72, "status": "max_range_envelope" },
       "sensitivity": {
         "mass_plus_5pct_velocity_delta_mps": -1,
         "mass_minus_5pct_velocity_delta_mps": 1,
@@ -471,8 +506,12 @@
       "notes": "Shoulder bar stowed: CG ~5 mm aft vs deployed; loaded round shifts system CG forward ~60 mm from grip."
     },
     "range_m": {
-      "effective_goal": 1000,
-      "min_engagement": 150
+      "min_engagement": 200,
+      "employment_band": { "min": 800, "max": 1200 },
+      "design_sweet_spot": 1000,
+      "max_range": 1200,
+      "velocity_calibration_m": 1000,
+      "notes": "Min 200 m: seeker lock + proximity standoff margin; 800-1200 m primary band; 1000 m sweet spot"
     },
     "rejected_concepts": [
       "laser_beam_riding",
@@ -496,7 +535,13 @@
       "guidance": "onboard_ir_fire_and_forget_moderate_maneuver",
       "payload": "300x7mm_dense_alloy_forward_cone_flak",
       "seeker_section_mm": 100,
-      "effective_range_m": { "min": 150, "goal": 1000 },
+      "effective_range_m": {
+        "min": 200,
+        "employment_band_min": 800,
+        "employment_band_max": 1200,
+        "design_sweet_spot": 1000,
+        "max": 1200
+      },
       "backblast_danger_zone_yards": 10,
       "backblast_danger_zone_ft": 30,
       "fuze": "radar_or_mmw_proximity_primary_timed_backup",
@@ -504,7 +549,7 @@
       "breech": "gustav_flip_spring_bolt_positive_lock",
       "rocket_retention_stop": true,
       "launcher_layout": "modernized_m1_bazooka_no_shoulder_stock",
-      "round_packaging": "alloy_tube_pop_top_and_breech_screw_cap",
+      "round_packaging": "tank_shell_tube_pop_top_load_unscrew_bottom_in_bore",
       "primary_role": "squad_sof_mid_range_drone_destroyer",
       "typical_targets": [
         "fpv_kamikaze_drone",
@@ -516,7 +561,7 @@
       "squad_suitable": true,
       "team_size": 2,
       "team_roles": ["gunner", "ammo_bearer"],
-      "notes": "Recoilless Anti-Drone Rocket. Mid-range drone destroyer for Group 1-2 UAS. 1000 m goal."
+      "notes": "Recoilless Anti-Drone Rocket. 200 m min; 800-1200 m band; 1000 m sweet spot; max 1200 m."
     },
     {
       "id": "fim-92-stinger",

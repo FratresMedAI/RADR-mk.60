@@ -20,7 +20,11 @@ Muzzle fitting = **combined muzzle brake / blast deflector**. See DOC-06.
 | Asset | Status |
 |-------|--------|
 | [`rocket/input/radr-container-paint-schematic.png`](rocket/input/radr-container-paint-schematic.png) | User Paint schematic |
-| [`rocket/output/radr-container-authoritative.png`](rocket/output/radr-container-authoritative.png) | **Container (locked)** — pop top + breech screw cap |
+| [`rocket/CONTAINER-SPEC.md`](rocket/CONTAINER-SPEC.md) | **CAD spec (locked)** — tank shell, load sequence, interface |
+| [`rocket/output/radr-container-authoritative.png`](rocket/output/radr-container-authoritative.png) | **Container art (locked)** — render unchanged |
+| [`rocket/ROUND-SPEC.md`](rocket/ROUND-SPEC.md) | **Rocket CAD spec** — math-checked vs trajectory script |
+| [`rocket/output/radr-round-v1-stowed-fins.png`](rocket/output/radr-round-v1-stowed-fins.png) | **Round art v1** — folded fins (review) |
+| [`rocket/output/radr-round-v2-fins-deploy.png`](rocket/output/radr-round-v2-fins-deploy.png) | **Round art v2** — fins deploying (review) |
 | [`rocket/CONTAINER-SPEC.md`](rocket/CONTAINER-SPEC.md) | Spec + workflow |
 | [`rocket/ROUND-SPEC.md`](rocket/ROUND-SPEC.md) | Bare round — after container |
 

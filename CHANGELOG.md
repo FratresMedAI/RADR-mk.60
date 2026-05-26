@@ -40,3 +40,18 @@
 
 - Locked [`visuals/rocket/output/radr-container-authoritative.png`](visuals/rocket/output/radr-container-authoritative.png) — **pop top** (PULL) + **breech screw cap** (hand-unscrew).
 - Side view: **left = top**, **right = breech**. Prep sequence in Annex F, JSON `round_packaging`, README gallery.
+
+## Range envelope: 200 m min, 800–1200 m band, 1000 m sweet spot (2026-05-25)
+
+- **200 m** minimum (not 150 m) — seeker/fuze margin; **800–1200 m** primary; **1000 m** sweet spot; **1200 m** max. JSON + DOC-01/02, Annex A/B/I/H.
+
+## Tank-shell CAD spec + load sequence (2026-05-25)
+
+- Official [`CONTAINER-SPEC.md`](visuals/rocket/CONTAINER-SPEC.md): tube stays in launcher; rocket clearance; foil continuity; under **10 s** trained load.
+- Load order: **pop top → slide tube in → unscrew bottom in bore → close → rocket ready → arm/fire**.
+- Render unchanged. Annex F, DOC-01–06, JSON `round_packaging` + `rocket_tube_interface`.
+
+## Rocket CAD spec + render attempts (2026-05-25)
+
+- [`ROUND-SPEC.md`](visuals/rocket/ROUND-SPEC.md): full rocket CAD; reconciled to **300 cubes**, **2950–3050 N·s**, **330–350 m/s** (`radr_trajectory.py` smoke **334.7**).
+- Review renders: `radr-round-v1-stowed-fins.png`, `radr-round-v2-fins-deploy.png`. Digital sight stays on **launcher**, not round.
