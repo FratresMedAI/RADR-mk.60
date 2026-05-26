@@ -22,6 +22,8 @@ This annex is the **authoritative** reference for breech mechanics, the rocket r
 
 **Support-hand ergonomics (right-handed gunner):** **Left index finger** on the front seeker trigger; **left thumb** on **+ / −** on the aft face of the foregrip — zoom without shifting the firing-hand grip on the rear pistol grip.
 
+**Shoulder bar (locked):** **~12 mm** rod; hinge on **forward black sleeve**; [stowed](../visuals/launcher/output/radr-bazooka-authoritative-stowed.png) / [deployed 12→6](../visuals/launcher/output/radr-bazooka-authoritative-deployed.png). Recoil shared with motor + grips + launcher body. **Shoulder-fired.**
+
 ---
 
 ## Loading and Firing — Gunner’s Sequence

@@ -145,16 +145,19 @@ flowchart LR
 
 ## Launcher
 
-![RADR launcher concept — locked silhouette](../visuals/launcher/output/radr-bazooka-goodmk60.png)
+![RADR launcher — shoulder bar stowed](../visuals/launcher/output/radr-bazooka-authoritative-stowed.png)
+
+*Deployed (12→6):* [authoritative-deployed](../visuals/launcher/output/radr-bazooka-authoritative-deployed.png)
 
 | Parameter | Spec |
 |-----------|------|
 | Length | 40 in (1016 mm) |
 | Mass (empty) | ≤ 5.5 kg (nominal **4.95 kg** — [Annex G](../annexes/G-mass-and-center-of-gravity.md)) |
 | Bore | 60 mm smoothbore (baseline) |
-| Layout | Modernized **M1 Bazooka** — long slim tube; **no shoulder stock** |
-| Grips | Forward vertical foregrip (between muzzle and sight) with **pistol-style seeker trigger**; rear pistol grip with fire trigger |
-| Padding | Rear section only (pistol grip → breech) |
+| Layout | Modernized **M1 Bazooka** — long slim tube; **no fixed shoulder stock** |
+| Grips | Forward vertical foregrip (between muzzle and sight) with **pistol-style seeker trigger**; **rear pistol grip just aft of holo** (fire trigger) |
+| **Shoulder bar** | **6 in** thin rod; hinge on **forward black sleeve**; [stowed](../visuals/launcher/output/radr-bazooka-authoritative-stowed.png) / [deployed](../visuals/launcher/output/radr-bazooka-authoritative-deployed.png) |
+| Padding | Rear section only (**aft of rear grip** → breech) |
 | Sight | Integrated holo **1.5×–4×** + fold-out **~4 in** viewer |
 | Zoom control | **+ / −** on **aft face** of foregrip (buttons face rear) |
 | Launcher power | Grip battery — holo, display, fire-control |
@@ -178,7 +181,19 @@ The fitting at the **muzzle** (M1 Bazooka–heritage silhouette) is a **combined
 | **Hand clearance** | Deflector geometry keeps the **forward foregrip** outside the primary blast cone |
 | **Mass** | **~0.20 kg** (budgeted within main tube forward section — [Annex G](../annexes/G-mass-and-center-of-gravity.md)) |
 
-Visual intent: [visuals/README.md](../visuals/README.md). Concept art (Goodmk60) — forward hardware to be read as this device in future renders.
+Visual intent: [visuals/README.md](../visuals/README.md). Concept art (Goodmk62) — forward hardware to be read as this device in future renders.
+
+### Fold-down shoulder bar
+
+Optional **shoulder support** — not a fixed stock. The bar is one part of a **shared recoil path** (progressive motor, both grips, rear pad); it does **not** take the full impulse alone.
+
+| State | Behavior |
+|-------|----------|
+| **Stowed** | **~12 mm** rod **flush** in sleeve channel — [authoritative stowed](../visuals/launcher/output/radr-bazooka-authoritative-stowed.png) |
+| **Deployed** | **12→6** vertical — [authoritative deployed](../visuals/launcher/output/radr-bazooka-authoritative-deployed.png) |
+| **Firing** | **Shoulder-fired** baseline — bar against shoulder or upper chest; cheek may contact rear pad. **Not** a hip-fire employment mode |
+
+Cross-section stays **soft and rounded** (same diamond pad texture as the rear wrap) — no sharp corners or add-on end stopper.
 
 ### Rocket Retention Stop
 

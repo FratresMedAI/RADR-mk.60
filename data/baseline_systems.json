@@ -193,9 +193,43 @@
     "launcher_ergonomics": {
       "heritage": "modernized_m1_bazooka",
       "shoulder_stock": false,
+      "shoulder_stop": {
+        "type": "fold_down_padded_bar",
+        "length_in": 6,
+        "bar_od_mm_nominal": 12,
+        "bar_od_in_nominal": 0.5,
+        "cross_section": "slim_rounded_not_sharp",
+        "padding": "same_texture_as_black_barrel_sleeve",
+        "hinge": {
+          "location": "underside_of_forward_black_textured_sleeve",
+          "visible_in_side_profile": true,
+          "form": "low_profile_pivot_knuckle"
+        },
+        "stowed": "flush_in_underside_channel_of_black_sleeve",
+        "deploy": {
+          "motion": "swing_down_and_slightly_forward",
+          "locked_position": "six_oclock_vertical",
+          "clock_analogy": "twelve_to_six"
+        },
+        "end": "flush_rounded_termination_no_add_on_cap",
+        "schematic_stowed": "visuals/launcher/radr-shoulder-bar-stowed-schematic.png",
+        "concept_art_deployed_authoritative": "visuals/launcher/output/radr-bazooka-authoritative-deployed.png",
+        "concept_art_stowed_authoritative": "visuals/launcher/output/radr-bazooka-authoritative-stowed.png",
+        "recoil_role": "shared_impulse_path_element_not_sole_bearer",
+        "recoil_shared_with": [
+          "progressive_motor_burn",
+          "forward_grip",
+          "rear_grip",
+          "rear_pad_optional_cheek_contact"
+        ],
+        "employment_baseline": "shoulder_fired_bar_deployed"
+      },
       "forward_grip": "vertical_foregrip_aft_of_muzzle_before_sight",
-      "rear_grip": "pistol_grip_with_fire_trigger",
-      "padding": "rear_only_pistol_grip_to_breech",
+      "rear_grip": {
+        "type": "pistol_grip_with_fire_trigger",
+        "position": "just_aft_of_integrated_holo_sight"
+      },
+      "padding": "rear_only_aft_of_rear_grip_to_breech",
       "sight": "integrated_holographic_pod_1.5x_to_4x",
       "sight_magnification": { "min": 1.5, "max": 4.0, "unit": "x" },
       "viewfinder": {
@@ -221,7 +255,9 @@
         "mass_kg_nominal": 0.2,
         "heritage": "m1_bazooka_like_forward_fitting_repurposed"
       },
-      "concept_art": "visuals/launcher/output/radr-bazooka-goodmk60.png"
+      "concept_art": "visuals/launcher/output/radr-bazooka-authoritative-stowed.png",
+      "concept_art_deployed": "visuals/launcher/output/radr-bazooka-authoritative-deployed.png",
+      "concept_art_stowed": "visuals/launcher/output/radr-bazooka-authoritative-stowed.png"
     },
     "launcher_controls": {
       "front_trigger": {

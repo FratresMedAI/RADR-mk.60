@@ -7,7 +7,13 @@
 **Status:** Phase 0 — Conceptual  
 **Version:** 1.7.0
 
-![RADR launcher concept — side profile](visuals/launcher/output/radr-bazooka-goodmk60.png)
+## Launcher concept art
+
+| **Stowed** — bar flush on forward sleeve | **Deployed** — shoulder bar at 12→6 (vertical) |
+|:---:|:---:|
+| ![RADR launcher — shoulder bar stowed](visuals/launcher/output/radr-bazooka-authoritative-stowed.png) | ![RADR launcher — shoulder bar deployed](visuals/launcher/output/radr-bazooka-authoritative-deployed.png) |
+
+Thin **~6 in** fold-down bar on the forward black sleeve; **visible hinge**; no fixed shoulder stock. Full geometry: [shoulder bar spec](visuals/launcher/SHOULDER-BAR-SPEC.md).
 
 ---
 
@@ -17,7 +23,7 @@ The gunner **rough-aims** on a fold-out viewer fed by an integrated holo (**1.5�
 
 **Philosophy:** Speed is the primary defense · KISS + rugged · One-person reload · Honest capability ceiling.
 
-**Launcher:** Modernized **M1 Bazooka** — **40 in** tube (≤ **5.5 kg** empty), matte camo, **Gustav-style flip breech** (spring bolt + positive deadbolt lock), **dual pistol-style triggers** (front slightly smaller; **+ / −** zoom on foregrip aft face), **no shoulder stock**, **slightly rear-biased** balance.
+**Launcher:** Modernized **M1 Bazooka** — **40 in** tube (≤ **5.5 kg** empty), matte camo, **Gustav-style flip breech** (spring bolt + positive deadbolt lock), **dual pistol-style triggers** (rear grip **just aft of holo**; front slightly smaller; **+ / −** on foregrip aft face), **6 in fold-down shoulder bar** (slim **rounded** pad, stows **flush** on barrel; deploys **12→6** vertical — **no add-on end cap**), **no fixed shoulder stock**, **slightly rear-biased** balance.
 
 ---
 
@@ -57,6 +63,7 @@ RADR is **not** sized for large Group 3+ platforms or long-range aircraft.
 | **Protective tube** | **Ravioli-can style** robust tube + **manual pull-off cap** (soldier removes on load) | Locked |
 | **Breech** | **Gustav-style flip**; spring-loaded bolt + **positive mechanical lock** (bolt-action feel) | Locked |
 | **Controls** | **Front** = seeker + audible tone; **rear** = fire (front held) | Locked |
+| **Shoulder bar** | **6 in** thin rod; hinge on **forward black sleeve**; [stowed](visuals/launcher/output/radr-bazooka-authoritative-stowed.png) / [deployed](visuals/launcher/output/radr-bazooka-authoritative-deployed.png) | Locked |
 | **CoG** | **Slightly rear-biased** (comfortable shouldering) | Locked |
 | **Rocket retention stop** | Bore stop when slung; releases only: breech closed + front held + lock tone | Locked |
 | **Sight / power** | Integrated holo **1.5×–4×**; fold-out **~4 in** viewer; grip battery | Locked |

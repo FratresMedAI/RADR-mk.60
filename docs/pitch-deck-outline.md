@@ -10,7 +10,7 @@
 - **RADR** — Recoilless Anti-Drone Rocket  
 - **Mid-range drone destroyer** for squad and SOF  
 - Phase 0 conceptual · 60 mm · 1000 m goal  
-- Visual: [Goodmk60](../visuals/launcher/output/radr-bazooka-goodmk60.png) side profile  
+- Visual: [Stowed](../visuals/launcher/output/radr-bazooka-authoritative-stowed.png) + [deployed](../visuals/launcher/output/radr-bazooka-authoritative-deployed.png)  
 
 ---
 
